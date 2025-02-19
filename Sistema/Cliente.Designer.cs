@@ -32,21 +32,19 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
+            dgvClientes = new DataGridView();
+            txtDireccion = new TextBox();
+            txtTelefono = new TextBox();
+            txtNombre = new TextBox();
+            txtIdCliente = new TextBox();
+            cmdGrabar = new Button();
+            cmdModificar = new Button();
+            cmdSalir = new Button();
+            cmdNuevo = new Button();
             label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            cmdCancelar = new Button();
+            cmdBuscar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -63,7 +61,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(372, 101);
+            label2.Location = new Point(55, 187);
             label2.Name = "label2";
             label2.Size = new Size(107, 31);
             label2.TabIndex = 1;
@@ -73,7 +71,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(69, 199);
+            label3.Location = new Point(42, 284);
             label3.Name = "label3";
             label3.Size = new Size(119, 31);
             label3.TabIndex = 2;
@@ -83,132 +81,104 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(71, 324);
+            label4.Location = new Point(59, 400);
             label4.Name = "label4";
             label4.Size = new Size(110, 31);
             label4.TabIndex = 3;
             label4.Text = "Telefono:";
             // 
-            // dataGridView1
+            // dgvClientes
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(751, 101);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(282, 422);
-            dataGridView1.TabIndex = 4;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Location = new Point(532, 101);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
+            dgvClientes.RowHeadersWidth = 51;
+            dgvClientes.Size = new Size(510, 538);
+            dgvClientes.TabIndex = 4;
             // 
-            // textBox1
+            // txtDireccion
             // 
-            textBox1.Location = new Point(233, 214);
-            textBox1.MaxLength = 200;
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(317, 59);
-            textBox1.TabIndex = 5;
+            txtDireccion.Location = new Point(181, 290);
+            txtDireccion.MaxLength = 200;
+            txtDireccion.Multiline = true;
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(317, 59);
+            txtDireccion.TabIndex = 5;
             // 
-            // textBox2
+            // txtTelefono
             // 
-            textBox2.Location = new Point(193, 324);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(286, 27);
-            textBox2.TabIndex = 6;
+            txtTelefono.Location = new Point(181, 400);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(286, 27);
+            txtTelefono.TabIndex = 6;
             // 
-            // textBox3
+            // txtNombre
             // 
-            textBox3.Location = new Point(498, 105);
-            textBox3.MaxLength = 200;
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(221, 71);
-            textBox3.TabIndex = 7;
+            txtNombre.Location = new Point(181, 191);
+            txtNombre.MaxLength = 200;
+            txtNombre.Multiline = true;
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(221, 71);
+            txtNombre.TabIndex = 7;
             // 
-            // textBox4
+            // txtIdCliente
             // 
-            textBox4.Location = new Point(181, 107);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(185, 27);
-            textBox4.TabIndex = 8;
+            txtIdCliente.Enabled = false;
+            txtIdCliente.Location = new Point(181, 107);
+            txtIdCliente.Name = "txtIdCliente";
+            txtIdCliente.Size = new Size(185, 27);
+            txtIdCliente.TabIndex = 8;
             // 
-            // button1
+            // cmdGrabar
             // 
-            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(69, 468);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 55);
-            button1.TabIndex = 9;
-            button1.Text = "Inicio";
-            button1.UseVisualStyleBackColor = true;
+            cmdGrabar.Cursor = Cursors.Hand;
+            cmdGrabar.Enabled = false;
+            cmdGrabar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdGrabar.Location = new Point(199, 523);
+            cmdGrabar.Name = "cmdGrabar";
+            cmdGrabar.Size = new Size(131, 55);
+            cmdGrabar.TabIndex = 16;
+            cmdGrabar.Text = "Grabar";
+            cmdGrabar.UseVisualStyleBackColor = true;
+            cmdGrabar.Click += cmdGrabar_Click;
             // 
-            // button2
+            // cmdModificar
             // 
-            button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(575, 468);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 55);
-            button2.TabIndex = 10;
-            button2.Text = "Ultimo";
-            button2.UseVisualStyleBackColor = true;
+            cmdModificar.Enabled = false;
+            cmdModificar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdModificar.Location = new Point(336, 523);
+            cmdModificar.Name = "cmdModificar";
+            cmdModificar.Size = new Size(131, 55);
+            cmdModificar.TabIndex = 15;
+            cmdModificar.Text = "Modificar";
+            cmdModificar.UseVisualStyleBackColor = true;
+            cmdModificar.Click += cmdModificar_Click;
             // 
-            // button3
+            // cmdSalir
             // 
-            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(402, 468);
-            button3.Name = "button3";
-            button3.Size = new Size(131, 55);
-            button3.TabIndex = 11;
-            button3.Text = "Siguiente";
-            button3.UseVisualStyleBackColor = true;
+            cmdSalir.Cursor = Cursors.Hand;
+            cmdSalir.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdSalir.Location = new Point(59, 585);
+            cmdSalir.Name = "cmdSalir";
+            cmdSalir.Size = new Size(131, 55);
+            cmdSalir.TabIndex = 14;
+            cmdSalir.Text = "Salir";
+            cmdSalir.UseVisualStyleBackColor = true;
+            cmdSalir.Click += cmdSalir_Click;
             // 
-            // button4
+            // cmdNuevo
             // 
-            button4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(235, 468);
-            button4.Name = "button4";
-            button4.Size = new Size(131, 55);
-            button4.TabIndex = 12;
-            button4.Text = "Anterior";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(235, 560);
-            button5.Name = "button5";
-            button5.Size = new Size(131, 55);
-            button5.TabIndex = 16;
-            button5.Text = "Grabar";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(402, 560);
-            button6.Name = "button6";
-            button6.Size = new Size(131, 55);
-            button6.TabIndex = 15;
-            button6.Text = "Modificar";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            button7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button7.Location = new Point(575, 560);
-            button7.Name = "button7";
-            button7.Size = new Size(131, 55);
-            button7.TabIndex = 14;
-            button7.Text = "Salir";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            button8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.Location = new Point(69, 560);
-            button8.Name = "button8";
-            button8.Size = new Size(131, 55);
-            button8.TabIndex = 13;
-            button8.Text = "Nuevo";
-            button8.UseVisualStyleBackColor = true;
+            cmdNuevo.Cursor = Cursors.Hand;
+            cmdNuevo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdNuevo.Location = new Point(57, 523);
+            cmdNuevo.Name = "cmdNuevo";
+            cmdNuevo.Size = new Size(131, 55);
+            cmdNuevo.TabIndex = 13;
+            cmdNuevo.Text = "Nuevo";
+            cmdNuevo.UseVisualStyleBackColor = true;
+            cmdNuevo.Click += cmdNuevo_Click;
             // 
             // label5
             // 
@@ -220,33 +190,56 @@
             label5.TabIndex = 17;
             label5.Text = "Clientes";
             // 
+            // cmdCancelar
+            // 
+            cmdCancelar.Cursor = Cursors.Hand;
+            cmdCancelar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdCancelar.Location = new Point(199, 584);
+            cmdCancelar.Name = "cmdCancelar";
+            cmdCancelar.Size = new Size(131, 55);
+            cmdCancelar.TabIndex = 18;
+            cmdCancelar.Text = "Cancelar";
+            cmdCancelar.UseVisualStyleBackColor = true;
+            cmdCancelar.Click += cmdCancelar_Click;
+            // 
+            // cmdBuscar
+            // 
+            cmdBuscar.Cursor = Cursors.Hand;
+            cmdBuscar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdBuscar.Location = new Point(336, 584);
+            cmdBuscar.Name = "cmdBuscar";
+            cmdBuscar.Size = new Size(131, 55);
+            cmdBuscar.TabIndex = 19;
+            cmdBuscar.Text = "Buscar";
+            cmdBuscar.UseVisualStyleBackColor = true;
+            cmdBuscar.Click += cmdBuscar_Click;
+            // 
             // Cliente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1064, 652);
+            Controls.Add(cmdBuscar);
+            Controls.Add(cmdCancelar);
             Controls.Add(label5);
-            Controls.Add(button5);
-            Controls.Add(button6);
-            Controls.Add(button7);
-            Controls.Add(button8);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(cmdGrabar);
+            Controls.Add(cmdModificar);
+            Controls.Add(cmdSalir);
+            Controls.Add(cmdNuevo);
+            Controls.Add(txtIdCliente);
+            Controls.Add(txtNombre);
+            Controls.Add(txtTelefono);
+            Controls.Add(txtDireccion);
+            Controls.Add(dgvClientes);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Cliente";
             Text = "Clientes";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += Cliente_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -257,19 +250,20 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private DataGridView dataGridView1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
+        private DataGridView dgvClientes;
+        private TextBox txtDireccion;
+        private TextBox txtTelefono;
+        private TextBox txtNombre;
+        private TextBox txtIdCliente;
         private Button button2;
         private Button button3;
         private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
+        private Button cmdGrabar;
+        private Button cmdModificar;
+        private Button cmdSalir;
+        private Button cmdNuevo;
         private Label label5;
+        private Button cmdCancelar;
+        private Button cmdBuscar;
     }
 }

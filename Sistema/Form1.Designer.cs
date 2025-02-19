@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             label5 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            cmdOrdenes = new Button();
-            button4 = new Button();
+            cmdClientes = new Button();
+            cmdMenu = new Button();
+            cmdRepartidores = new Button();
             SuspendLayout();
             // 
             // label5
@@ -46,60 +44,44 @@
             label5.TabIndex = 35;
             label5.Text = "Menu de platillos";
             // 
-            // button1
+            // cmdClientes
             // 
-            button1.BackColor = SystemColors.Control;
-            button1.Font = new Font("Consolas", 16.2F);
-            button1.Location = new Point(163, 124);
-            button1.Name = "button1";
-            button1.Size = new Size(214, 137);
-            button1.TabIndex = 36;
-            button1.Text = "Clientes";
-            button1.UseVisualStyleBackColor = false;
+            cmdClientes.BackColor = SystemColors.Control;
+            cmdClientes.Cursor = Cursors.Hand;
+            cmdClientes.Font = new Font("Consolas", 16.2F);
+            cmdClientes.Location = new Point(176, 229);
+            cmdClientes.Name = "cmdClientes";
+            cmdClientes.Size = new Size(214, 137);
+            cmdClientes.TabIndex = 36;
+            cmdClientes.Text = "Clientes";
+            cmdClientes.UseVisualStyleBackColor = false;
+            cmdClientes.Click += cmdClientes_Click;
             // 
-            // button2
+            // cmdMenu
             // 
-            button2.BackColor = SystemColors.Control;
-            button2.Font = new Font("Consolas", 16.2F);
-            button2.Location = new Point(402, 124);
-            button2.Name = "button2";
-            button2.Size = new Size(214, 137);
-            button2.TabIndex = 37;
-            button2.Text = "Repartidores";
-            button2.UseVisualStyleBackColor = false;
+            cmdMenu.BackColor = SystemColors.Control;
+            cmdMenu.Cursor = Cursors.Hand;
+            cmdMenu.Font = new Font("Consolas", 16.2F);
+            cmdMenu.Location = new Point(667, 229);
+            cmdMenu.Name = "cmdMenu";
+            cmdMenu.Size = new Size(214, 137);
+            cmdMenu.TabIndex = 38;
+            cmdMenu.Text = "Menu";
+            cmdMenu.UseVisualStyleBackColor = false;
+            cmdMenu.Click += cmdMenu_Click;
             // 
-            // button3
+            // cmdRepartidores
             // 
-            button3.BackColor = SystemColors.Control;
-            button3.Font = new Font("Consolas", 16.2F);
-            button3.Location = new Point(654, 124);
-            button3.Name = "button3";
-            button3.Size = new Size(214, 137);
-            button3.TabIndex = 38;
-            button3.Text = "Menu";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // cmdOrdenes
-            // 
-            cmdOrdenes.BackColor = SystemColors.Control;
-            cmdOrdenes.Font = new Font("Consolas", 16.2F);
-            cmdOrdenes.Location = new Point(275, 316);
-            cmdOrdenes.Name = "cmdOrdenes";
-            cmdOrdenes.Size = new Size(214, 137);
-            cmdOrdenes.TabIndex = 39;
-            cmdOrdenes.Text = "Ordenes";
-            cmdOrdenes.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = SystemColors.Control;
-            button4.Font = new Font("Consolas", 16.2F);
-            button4.Location = new Point(526, 316);
-            button4.Name = "button4";
-            button4.Size = new Size(214, 137);
-            button4.TabIndex = 40;
-            button4.Text = "Detalle de Orden";
-            button4.UseVisualStyleBackColor = false;
+            cmdRepartidores.BackColor = SystemColors.Control;
+            cmdRepartidores.Cursor = Cursors.Hand;
+            cmdRepartidores.Font = new Font("Consolas", 16.2F);
+            cmdRepartidores.Location = new Point(415, 229);
+            cmdRepartidores.Name = "cmdRepartidores";
+            cmdRepartidores.Size = new Size(214, 137);
+            cmdRepartidores.TabIndex = 37;
+            cmdRepartidores.Text = "Repartidores";
+            cmdRepartidores.UseVisualStyleBackColor = false;
+            cmdRepartidores.Click += cmdRepartidores_Click;
             // 
             // Form1
             // 
@@ -107,11 +89,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(996, 590);
-            Controls.Add(button4);
-            Controls.Add(cmdOrdenes);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(cmdMenu);
+            Controls.Add(cmdRepartidores);
+            Controls.Add(cmdClientes);
             Controls.Add(label5);
             Name = "Form1";
             Text = "Form1";
@@ -122,10 +102,8 @@
         #endregion
 
         private Label label5;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button cmdOrdenes;
-        private Button button4;
+        private Button cmdClientes;
+        private Button cmdMenu;
+        private Button cmdRepartidores;
     }
 }
