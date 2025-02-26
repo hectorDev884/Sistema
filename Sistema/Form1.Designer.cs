@@ -32,6 +32,7 @@
             cmdClientes = new Button();
             cmdMenu = new Button();
             cmdRepartidores = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // label5
@@ -66,7 +67,7 @@
             cmdMenu.Name = "cmdMenu";
             cmdMenu.Size = new Size(214, 137);
             cmdMenu.TabIndex = 38;
-            cmdMenu.Text = "Menu";
+            cmdMenu.Text = "Menú";
             cmdMenu.UseVisualStyleBackColor = false;
             cmdMenu.Click += cmdMenu_Click;
             // 
@@ -83,12 +84,23 @@
             cmdRepartidores.UseVisualStyleBackColor = false;
             cmdRepartidores.Click += cmdRepartidores_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(429, 68);
+            label1.Name = "label1";
+            label1.Size = new Size(154, 41);
+            label1.TabIndex = 39;
+            label1.Text = "Catálogos";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(996, 590);
+            Controls.Add(label1);
             Controls.Add(cmdMenu);
             Controls.Add(cmdRepartidores);
             Controls.Add(cmdClientes);
@@ -105,5 +117,6 @@
         private Button cmdClientes;
         private Button cmdMenu;
         private Button cmdRepartidores;
+        private Label label1;
     }
 }

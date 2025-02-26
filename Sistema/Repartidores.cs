@@ -13,8 +13,6 @@ namespace Sistema
 {
     public partial class Repartidores : Form
     {
-        SqlConnection sqlConnection = new SqlConnection();
-        SqlCommand sqlCommand = new SqlCommand();
         public Repartidores()
         {
             InitializeComponent();
@@ -22,21 +20,28 @@ namespace Sistema
 
         private void Repartidores_Load(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=.;Initial Catalog=SistemaPedidos;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
-            sqlConnection.ConnectionString = connectionString;
-            sqlConnection.Open();
-            sqlCommand.Connection = sqlConnection;
-            txtIdRepartidor.Text = GetNewId().ToString();
             GetData();
+            txtIdRepartidor.Text = GetNewId().ToString();
+        }
+        private void EnableTexts(bool status)
+        {
+            txtNombre.Enabled = status;
+            txtTelefono.Enabled = status;
+            txtVehiculo.Enabled = status;
         }
 
         private void GetData()
         {
+            string connectionString = "Data Source=.;Initial Catalog=SistemaPedidos;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("", sqlConnection);
             string query = "SELECT * FROM Repartidores;";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
             DataTable dt = new DataTable();
             sqlDataAdapter.Fill(dt);
             dgvRepartidores.DataSource = dt;
+            sqlConnection.Close();
         }
 
         private void cmdNuevo_Click(object sender, EventArgs e)
@@ -50,10 +55,15 @@ namespace Sistema
             txtIdRepartidor.Clear();
             txtIdRepartidor.Enabled = false;
             txtIdRepartidor.Text = GetNewId().ToString();
+            EnableTexts(true);
         }
 
         private void cmdGrabar_Click(object sender, EventArgs e)
         {
+            string connectionString = "Data Source=.;Initial Catalog=SistemaPedidos;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("", sqlConnection);
             sqlCommand.CommandText = "INSERT INTO Repartidores VALUES(@nombre, @telefono, @vehiculo);";
             sqlCommand.Parameters.Clear();
             sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
@@ -61,17 +71,22 @@ namespace Sistema
             sqlCommand.Parameters.AddWithValue("@telefono", txtTelefono.Text);
 
             sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
             GetData();
+            EnableTexts(false);
         }
 
         private void cmdSalir_Click(object sender, EventArgs e)
         {
-            sqlConnection.Close();
             Close();
         }
 
         private int GetNewId()
         {
+            string connectionString = "Data Source=.;Initial Catalog=SistemaPedidos;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("", sqlConnection);
             sqlCommand.CommandText = "SELECT TOP 1 IdRepartidor FROM Repartidores ORDER BY IdRepartidor DESC";
             SqlDataReader reader = sqlCommand.ExecuteReader();
             int id = 0;
@@ -81,11 +96,16 @@ namespace Sistema
             }
 
             reader.Close();
+            sqlConnection.Close();
             return id + 1;
         }
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
+            string connectionString = "Data Source=.;Initial Catalog=SistemaPedidos;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("", sqlConnection);
             int id = Convert.ToInt32(Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Repartidor"));
             sqlCommand.CommandText = "SELECT * FROM Repartidores WHERE IdRepartidor = @id";
             sqlCommand.Parameters.Clear();
@@ -100,16 +120,22 @@ namespace Sistema
                 cmdBuscar.Enabled = false;
                 cmdModificar.Enabled = true;
                 cmdGrabar.Enabled = false;
+                EnableTexts(true);
             }
             else
             {
                 MessageBox.Show($"El id: {id} no existe en la tabla Repartidores");
             }
             reader.Close();
+            sqlConnection.Close();
         }
 
         private void cmdModificar_Click(object sender, EventArgs e)
         {
+            string connectionString = "Data Source=.;Initial Catalog=SistemaPedidos;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("", sqlConnection);
             sqlCommand.CommandText = "UPDATE Repartidores SET Nombre=@Nombre, Telefono=@Telefono," +
                                       "Vehiculo=@Vehiculo WHERE IdRepartidor=@Id";
             sqlCommand.Parameters.Clear();
@@ -122,9 +148,11 @@ namespace Sistema
             cmdGrabar.Enabled = false;
             cmdBuscar.Enabled = true;
             cmdModificar.Enabled = false;
+            EnableTexts(false);
 
 
             sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
             GetData();
 
         }
@@ -141,6 +169,7 @@ namespace Sistema
             txtIdRepartidor.Clear();
             txtIdRepartidor.Enabled = false;
             txtIdRepartidor.Text = GetNewId().ToString();
+            EnableTexts(false);
         }
     }
 }

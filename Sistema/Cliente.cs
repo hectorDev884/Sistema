@@ -31,7 +31,12 @@ namespace Sistema
             txtIdCliente.Text = GetNewId().ToString();
             GetData();
         }
-
+        private void EnableTexts(bool status)
+        {
+            txtNombre.Enabled = status;
+            txtTelefono.Enabled = status;
+            txtDireccion.Enabled = status;
+        }
         private void GetData()
         {
             string query = "SELECT * FROM Clientes;";
@@ -52,6 +57,7 @@ namespace Sistema
             sqlCommand.Parameters.AddWithValue("@direccionCliente", direccionCliente);
             sqlCommand.Parameters.AddWithValue("telefonoCliente", telefonoCliente);
 
+            EnableTexts(false);
             sqlCommand.ExecuteNonQuery();
             GetData();
         }
@@ -67,6 +73,7 @@ namespace Sistema
             cmdGrabar.Enabled = true;
             cmdCancelar.Enabled = true;
             cmdModificar.Enabled = false;
+            EnableTexts(true);
         }
 
         private void cmdSalir_Click(object sender, EventArgs e)
@@ -106,6 +113,7 @@ namespace Sistema
                 cmdModificar.Enabled = true;
                 cmdGrabar.Enabled = false;
                 cmdNuevo.Enabled = true;
+                EnableTexts(true);
             }
             else
             {
@@ -128,6 +136,7 @@ namespace Sistema
             cmdGrabar.Enabled = false;
             cmdBuscar.Enabled = true;
             cmdModificar.Enabled = false;
+            EnableTexts(false);
             sqlCommand.ExecuteNonQuery();
             GetData();
 
@@ -144,6 +153,12 @@ namespace Sistema
             cmdGrabar.Enabled = false;
             cmdCancelar.Enabled = true;
             cmdModificar.Enabled = false;
+            EnableTexts(false);
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,9 +17,11 @@ namespace Sistema
             InitializeComponent();
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void Ordenes_Load(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

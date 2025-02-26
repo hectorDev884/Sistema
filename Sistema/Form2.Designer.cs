@@ -75,7 +75,7 @@
             label3.Name = "label3";
             label3.Size = new Size(149, 31);
             label3.TabIndex = 2;
-            label3.Text = "Descripcion: ";
+            label3.Text = "Descripción: ";
             // 
             // dgvMenu
             // 
@@ -180,9 +180,9 @@
             label5.Font = new Font("Arial", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(383, 33);
             label5.Name = "label5";
-            label5.Size = new Size(290, 40);
+            label5.Size = new Size(291, 40);
             label5.TabIndex = 17;
-            label5.Text = "Menu de platillos";
+            label5.Text = "Menú de platillos";
             // 
             // txtPrecio
             // 

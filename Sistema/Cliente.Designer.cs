@@ -75,7 +75,7 @@
             label3.Name = "label3";
             label3.Size = new Size(119, 31);
             label3.TabIndex = 2;
-            label3.Text = "Direccion:";
+            label3.Text = "Dirección:";
             // 
             // label4
             // 
@@ -85,7 +85,8 @@
             label4.Name = "label4";
             label4.Size = new Size(110, 31);
             label4.TabIndex = 3;
-            label4.Text = "Telefono:";
+            label4.Text = "Teléfono:";
+            label4.Click += label4_Click;
             // 
             // dgvClientes
             // 

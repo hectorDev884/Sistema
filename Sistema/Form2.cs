@@ -30,6 +30,12 @@ namespace Sistema
             txtIdMenu.Text = GetNewId().ToString();
         }
 
+        private void EnableTexts(bool status)
+        {
+            txtConcepto.Enabled = status;
+            txtDescripcion.Enabled = status;
+            txtPrecio.Enabled = status;
+        }
         private void GetData()
         {
             string query = "SELECT * FROM MenuPlatillos";
@@ -49,6 +55,7 @@ namespace Sistema
             txtDescripcion.Clear();
             txtPrecio.Clear();
             txtIdMenu.Text = GetNewId().ToString();
+            EnableTexts(true);
         }
 
         private void cmdGrabar_Click(object sender, EventArgs e)
@@ -66,6 +73,7 @@ namespace Sistema
             sqlCommand.ExecuteNonQuery();
             txtIdMenu.Text = GetNewId().ToString();
             GetData();
+            EnableTexts(false);
         }
 
         private void cmdSalir_Click(object sender, EventArgs e)
@@ -105,6 +113,7 @@ namespace Sistema
                 cmdModificar.Enabled = true;
                 cmdGrabar.Enabled = false;
                 cmdNuevo.Enabled = true;
+                EnableTexts(true);
             }
             else
             {
@@ -127,6 +136,7 @@ namespace Sistema
             cmdGrabar.Enabled = false;
             cmdBuscar.Enabled = true;
             cmdModificar.Enabled = false;
+            EnableTexts(false);
             sqlCommand.ExecuteNonQuery();
             GetData();
 

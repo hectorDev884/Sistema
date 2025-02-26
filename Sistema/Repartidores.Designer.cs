@@ -75,7 +75,7 @@
             label3.Name = "label3";
             label3.Size = new Size(109, 31);
             label3.TabIndex = 2;
-            label3.Text = "Vehiculo:";
+            label3.Text = "Vehículo:";
             // 
             // label4
             // 
@@ -85,7 +85,7 @@
             label4.Name = "label4";
             label4.Size = new Size(110, 31);
             label4.TabIndex = 3;
-            label4.Text = "Telefono:";
+            label4.Text = "Teléfono:";
             // 
             // dgvRepartidores
             // 
@@ -100,6 +100,7 @@
             // 
             // txtVehiculo
             // 
+            txtVehiculo.Enabled = false;
             txtVehiculo.Location = new Point(141, 251);
             txtVehiculo.MaxLength = 200;
             txtVehiculo.Name = "txtVehiculo";
@@ -108,6 +109,7 @@
             // 
             // txtTelefono
             // 
+            txtTelefono.Enabled = false;
             txtTelefono.Location = new Point(143, 338);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(286, 27);
@@ -115,6 +117,7 @@
             // 
             // txtNombre
             // 
+            txtNombre.Enabled = false;
             txtNombre.Location = new Point(138, 184);
             txtNombre.MaxLength = 200;
             txtNombre.Name = "txtNombre";
