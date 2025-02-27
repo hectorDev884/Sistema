@@ -32,49 +32,58 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            txtTelefonoCliente = new TextBox();
+            txtDireccionCliente = new TextBox();
+            txtIdCliente = new TextBox();
+            cbxCliente = new ComboBox();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
             label3 = new Label();
             panel2 = new Panel();
-            textBox12 = new TextBox();
+            txtCantidad = new TextBox();
             label19 = new Label();
-            textBox7 = new TextBox();
+            txtPrecioMenu = new TextBox();
             label6 = new Label();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
+            txtDescripcionMenu = new TextBox();
+            txtIdPlatillo = new TextBox();
             label18 = new Label();
             label15 = new Label();
             label17 = new Label();
-            comboBox3 = new ComboBox();
+            cbxPlatillo = new ComboBox();
             label16 = new Label();
             panel3 = new Panel();
-            textBox4 = new TextBox();
+            txtVehiculoRep = new TextBox();
             label4 = new Label();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            txtTelefonoRep = new TextBox();
+            txtIdRep = new TextBox();
             label14 = new Label();
-            comboBox2 = new ComboBox();
+            cbxRepartidor = new ComboBox();
             label13 = new Label();
             label11 = new Label();
             label12 = new Label();
-            textBox10 = new TextBox();
-            textBox11 = new TextBox();
-            dataGridView1 = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            txtNumPedido = new TextBox();
+            txtFecha = new TextBox();
+            dgvOrden = new DataGridView();
+            Cliente = new DataGridViewTextBoxColumn();
+            Repartidor = new DataGridViewTextBoxColumn();
+            Platillo = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            Importe = new DataGridViewTextBoxColumn();
+            IVA = new DataGridViewTextBoxColumn();
+            cmdNuevo = new Button();
+            cmdGrabar = new Button();
+            cmdCancelar = new Button();
+            cmdSalir = new Button();
+            cmdOK = new Button();
+            txtTotal = new TextBox();
+            label20 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrden).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -110,10 +119,10 @@
             // panel1
             // 
             panel1.BackColor = Color.WhiteSmoke;
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(txtTelefonoCliente);
+            panel1.Controls.Add(txtDireccionCliente);
+            panel1.Controls.Add(txtIdCliente);
+            panel1.Controls.Add(cbxCliente);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
@@ -124,37 +133,42 @@
             panel1.Size = new Size(1180, 130);
             panel1.TabIndex = 20;
             // 
-            // textBox3
+            // txtTelefonoCliente
             // 
-            textBox3.Enabled = false;
-            textBox3.Location = new Point(913, 54);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(236, 27);
-            textBox3.TabIndex = 8;
+            txtTelefonoCliente.Enabled = false;
+            txtTelefonoCliente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtTelefonoCliente.Location = new Point(913, 54);
+            txtTelefonoCliente.Name = "txtTelefonoCliente";
+            txtTelefonoCliente.Size = new Size(236, 27);
+            txtTelefonoCliente.TabIndex = 8;
             // 
-            // textBox2
+            // txtDireccionCliente
             // 
-            textBox2.Enabled = false;
-            textBox2.Location = new Point(612, 54);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(187, 27);
-            textBox2.TabIndex = 7;
+            txtDireccionCliente.Enabled = false;
+            txtDireccionCliente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtDireccionCliente.Location = new Point(612, 54);
+            txtDireccionCliente.Name = "txtDireccionCliente";
+            txtDireccionCliente.Size = new Size(187, 27);
+            txtDireccionCliente.TabIndex = 7;
             // 
-            // textBox1
+            // txtIdCliente
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(339, 54);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(169, 27);
-            textBox1.TabIndex = 6;
+            txtIdCliente.Enabled = false;
+            txtIdCliente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtIdCliente.Location = new Point(339, 54);
+            txtIdCliente.Name = "txtIdCliente";
+            txtIdCliente.Size = new Size(169, 27);
+            txtIdCliente.TabIndex = 6;
             // 
-            // comboBox1
+            // cbxCliente
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(111, 54);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 28);
-            comboBox1.TabIndex = 5;
+            cbxCliente.Enabled = false;
+            cbxCliente.FormattingEnabled = true;
+            cbxCliente.Location = new Point(111, 54);
+            cbxCliente.Name = "cbxCliente";
+            cbxCliente.Size = new Size(182, 28);
+            cbxCliente.TabIndex = 5;
+            cbxCliente.SelectedIndexChanged += cbxCliente_SelectedIndexChanged;
             // 
             // label10
             // 
@@ -209,28 +223,28 @@
             // panel2
             // 
             panel2.BackColor = Color.LightGray;
-            panel2.Controls.Add(textBox12);
+            panel2.Controls.Add(txtCantidad);
             panel2.Controls.Add(label19);
-            panel2.Controls.Add(textBox7);
+            panel2.Controls.Add(txtPrecioMenu);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(textBox8);
-            panel2.Controls.Add(textBox9);
+            panel2.Controls.Add(txtDescripcionMenu);
+            panel2.Controls.Add(txtIdPlatillo);
             panel2.Controls.Add(label18);
             panel2.Controls.Add(label15);
             panel2.Controls.Add(label17);
-            panel2.Controls.Add(comboBox3);
+            panel2.Controls.Add(cbxPlatillo);
             panel2.Controls.Add(label16);
             panel2.Location = new Point(49, 424);
             panel2.Name = "panel2";
             panel2.Size = new Size(1180, 151);
             panel2.TabIndex = 21;
             // 
-            // textBox12
+            // txtCantidad
             // 
-            textBox12.Location = new Point(913, 103);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(236, 27);
-            textBox12.TabIndex = 26;
+            txtCantidad.Location = new Point(913, 103);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(236, 27);
+            txtCantidad.TabIndex = 26;
             // 
             // label19
             // 
@@ -242,13 +256,14 @@
             label19.TabIndex = 25;
             label19.Text = "Cantidad";
             // 
-            // textBox7
+            // txtPrecioMenu
             // 
-            textBox7.Enabled = false;
-            textBox7.Location = new Point(913, 54);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(236, 27);
-            textBox7.TabIndex = 24;
+            txtPrecioMenu.Enabled = false;
+            txtPrecioMenu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtPrecioMenu.Location = new Point(913, 54);
+            txtPrecioMenu.Name = "txtPrecioMenu";
+            txtPrecioMenu.Size = new Size(236, 27);
+            txtPrecioMenu.TabIndex = 24;
             // 
             // label6
             // 
@@ -260,22 +275,24 @@
             label6.TabIndex = 2;
             label6.Text = "Menú";
             // 
-            // textBox8
+            // txtDescripcionMenu
             // 
-            textBox8.Enabled = false;
-            textBox8.Location = new Point(635, 58);
-            textBox8.Multiline = true;
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(185, 72);
-            textBox8.TabIndex = 23;
+            txtDescripcionMenu.Enabled = false;
+            txtDescripcionMenu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtDescripcionMenu.Location = new Point(635, 58);
+            txtDescripcionMenu.Multiline = true;
+            txtDescripcionMenu.Name = "txtDescripcionMenu";
+            txtDescripcionMenu.Size = new Size(185, 72);
+            txtDescripcionMenu.TabIndex = 23;
             // 
-            // textBox9
+            // txtIdPlatillo
             // 
-            textBox9.Enabled = false;
-            textBox9.Location = new Point(339, 54);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(169, 27);
-            textBox9.TabIndex = 22;
+            txtIdPlatillo.Enabled = false;
+            txtIdPlatillo.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtIdPlatillo.Location = new Point(339, 54);
+            txtIdPlatillo.Name = "txtIdPlatillo";
+            txtIdPlatillo.Size = new Size(169, 27);
+            txtIdPlatillo.TabIndex = 22;
             // 
             // label18
             // 
@@ -307,13 +324,15 @@
             label17.TabIndex = 20;
             label17.Text = "Descripcion:";
             // 
-            // comboBox3
+            // cbxPlatillo
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(111, 54);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(182, 28);
-            comboBox3.TabIndex = 21;
+            cbxPlatillo.Enabled = false;
+            cbxPlatillo.FormattingEnabled = true;
+            cbxPlatillo.Location = new Point(111, 54);
+            cbxPlatillo.Name = "cbxPlatillo";
+            cbxPlatillo.Size = new Size(182, 28);
+            cbxPlatillo.TabIndex = 21;
+            cbxPlatillo.SelectedIndexChanged += cbxPlatillo_SelectedIndexChanged;
             // 
             // label16
             // 
@@ -328,12 +347,12 @@
             // panel3
             // 
             panel3.BackColor = Color.Azure;
-            panel3.Controls.Add(textBox4);
+            panel3.Controls.Add(txtVehiculoRep);
             panel3.Controls.Add(label4);
-            panel3.Controls.Add(textBox5);
-            panel3.Controls.Add(textBox6);
+            panel3.Controls.Add(txtTelefonoRep);
+            panel3.Controls.Add(txtIdRep);
             panel3.Controls.Add(label14);
-            panel3.Controls.Add(comboBox2);
+            panel3.Controls.Add(cbxRepartidor);
             panel3.Controls.Add(label13);
             panel3.Controls.Add(label11);
             panel3.Controls.Add(label12);
@@ -342,13 +361,14 @@
             panel3.Size = new Size(1180, 130);
             panel3.TabIndex = 22;
             // 
-            // textBox4
+            // txtVehiculoRep
             // 
-            textBox4.Enabled = false;
-            textBox4.Location = new Point(913, 58);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(236, 27);
-            textBox4.TabIndex = 16;
+            txtVehiculoRep.Enabled = false;
+            txtVehiculoRep.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtVehiculoRep.Location = new Point(913, 58);
+            txtVehiculoRep.Name = "txtVehiculoRep";
+            txtVehiculoRep.Size = new Size(236, 27);
+            txtVehiculoRep.TabIndex = 16;
             // 
             // label4
             // 
@@ -360,21 +380,23 @@
             label4.TabIndex = 1;
             label4.Text = "Repartidor";
             // 
-            // textBox5
+            // txtTelefonoRep
             // 
-            textBox5.Enabled = false;
-            textBox5.Location = new Point(612, 58);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(187, 27);
-            textBox5.TabIndex = 15;
+            txtTelefonoRep.Enabled = false;
+            txtTelefonoRep.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtTelefonoRep.Location = new Point(612, 58);
+            txtTelefonoRep.Name = "txtTelefonoRep";
+            txtTelefonoRep.Size = new Size(187, 27);
+            txtTelefonoRep.TabIndex = 15;
             // 
-            // textBox6
+            // txtIdRep
             // 
-            textBox6.Enabled = false;
-            textBox6.Location = new Point(339, 58);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(169, 27);
-            textBox6.TabIndex = 14;
+            txtIdRep.Enabled = false;
+            txtIdRep.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtIdRep.Location = new Point(339, 58);
+            txtIdRep.Name = "txtIdRep";
+            txtIdRep.Size = new Size(169, 27);
+            txtIdRep.TabIndex = 14;
             // 
             // label14
             // 
@@ -386,13 +408,15 @@
             label14.TabIndex = 9;
             label14.Text = "Repartidor:";
             // 
-            // comboBox2
+            // cbxRepartidor
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(111, 58);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(182, 28);
-            comboBox2.TabIndex = 13;
+            cbxRepartidor.Enabled = false;
+            cbxRepartidor.FormattingEnabled = true;
+            cbxRepartidor.Location = new Point(111, 58);
+            cbxRepartidor.Name = "cbxRepartidor";
+            cbxRepartidor.Size = new Size(182, 28);
+            cbxRepartidor.TabIndex = 13;
+            cbxRepartidor.SelectedIndexChanged += cbxRepartidor_SelectedIndexChanged;
             // 
             // label13
             // 
@@ -424,86 +448,170 @@
             label12.TabIndex = 11;
             label12.Text = "Vehiculo:";
             // 
-            // textBox10
+            // txtNumPedido
             // 
-            textBox10.Enabled = false;
-            textBox10.Location = new Point(615, 35);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(233, 27);
-            textBox10.TabIndex = 9;
+            txtNumPedido.Enabled = false;
+            txtNumPedido.Location = new Point(615, 35);
+            txtNumPedido.Name = "txtNumPedido";
+            txtNumPedido.Size = new Size(233, 27);
+            txtNumPedido.TabIndex = 9;
             // 
-            // textBox11
+            // txtFecha
             // 
-            textBox11.Enabled = false;
-            textBox11.Location = new Point(615, 68);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(233, 27);
-            textBox11.TabIndex = 23;
+            txtFecha.Enabled = false;
+            txtFecha.Location = new Point(615, 68);
+            txtFecha.Name = "txtFecha";
+            txtFecha.Size = new Size(233, 27);
+            txtFecha.TabIndex = 23;
             // 
-            // dataGridView1
+            // dgvOrden
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(157, 595);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(950, 161);
-            dataGridView1.TabIndex = 24;
+            dgvOrden.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrden.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrden.Columns.AddRange(new DataGridViewColumn[] { Cliente, Repartidor, Platillo, Precio, Cantidad, Importe, IVA });
+            dgvOrden.Location = new Point(157, 595);
+            dgvOrden.Name = "dgvOrden";
+            dgvOrden.ReadOnly = true;
+            dgvOrden.RowHeadersWidth = 51;
+            dgvOrden.Size = new Size(950, 161);
+            dgvOrden.TabIndex = 24;
+            dgvOrden.CellContentClick += dgvOrden_CellContentClick;
             // 
-            // button1
+            // Cliente
             // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(389, 789);
-            button1.Name = "button1";
-            button1.Size = new Size(105, 59);
-            button1.TabIndex = 25;
-            button1.Text = "Nuevo";
-            button1.UseVisualStyleBackColor = false;
+            Cliente.HeaderText = "Cliente";
+            Cliente.MinimumWidth = 6;
+            Cliente.Name = "Cliente";
+            Cliente.ReadOnly = true;
             // 
-            // button2
+            // Repartidor
             // 
-            button2.BackColor = Color.LightGreen;
-            button2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(540, 789);
-            button2.Name = "button2";
-            button2.Size = new Size(105, 59);
-            button2.TabIndex = 26;
-            button2.Text = "Grabar";
-            button2.UseVisualStyleBackColor = false;
+            Repartidor.HeaderText = "Repartidor";
+            Repartidor.MinimumWidth = 6;
+            Repartidor.Name = "Repartidor";
+            Repartidor.ReadOnly = true;
             // 
-            // button3
+            // Platillo
             // 
-            button3.BackColor = SystemColors.ActiveCaption;
-            button3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(692, 789);
-            button3.Name = "button3";
-            button3.Size = new Size(105, 59);
-            button3.TabIndex = 27;
-            button3.Text = "Cancelar";
-            button3.UseVisualStyleBackColor = false;
+            Platillo.HeaderText = "Platillo";
+            Platillo.MinimumWidth = 6;
+            Platillo.Name = "Platillo";
+            Platillo.ReadOnly = true;
             // 
-            // button4
+            // Precio
             // 
-            button4.BackColor = Color.IndianRed;
-            button4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(839, 789);
-            button4.Name = "button4";
-            button4.Size = new Size(105, 59);
-            button4.TabIndex = 28;
-            button4.Text = "Salir";
-            button4.UseVisualStyleBackColor = false;
+            Precio.HeaderText = "Precio";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
             // 
-            // button5
+            // Cantidad
             // 
-            button5.BackColor = Color.LightGreen;
-            button5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(1158, 637);
-            button5.Name = "button5";
-            button5.Size = new Size(105, 59);
-            button5.TabIndex = 29;
-            button5.Text = "OK";
-            button5.UseVisualStyleBackColor = false;
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.MinimumWidth = 6;
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            // 
+            // Importe
+            // 
+            Importe.HeaderText = "Importe";
+            Importe.MinimumWidth = 6;
+            Importe.Name = "Importe";
+            Importe.ReadOnly = true;
+            // 
+            // IVA
+            // 
+            IVA.HeaderText = "IVA";
+            IVA.MinimumWidth = 6;
+            IVA.Name = "IVA";
+            IVA.ReadOnly = true;
+            // 
+            // cmdNuevo
+            // 
+            cmdNuevo.BackColor = SystemColors.ActiveCaption;
+            cmdNuevo.Cursor = Cursors.Hand;
+            cmdNuevo.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdNuevo.Location = new Point(389, 789);
+            cmdNuevo.Name = "cmdNuevo";
+            cmdNuevo.Size = new Size(105, 59);
+            cmdNuevo.TabIndex = 25;
+            cmdNuevo.Text = "Nuevo";
+            cmdNuevo.UseVisualStyleBackColor = false;
+            cmdNuevo.Click += cmdNuevo_Click;
+            // 
+            // cmdGrabar
+            // 
+            cmdGrabar.BackColor = Color.LightGreen;
+            cmdGrabar.Cursor = Cursors.Hand;
+            cmdGrabar.Enabled = false;
+            cmdGrabar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdGrabar.Location = new Point(540, 789);
+            cmdGrabar.Name = "cmdGrabar";
+            cmdGrabar.Size = new Size(105, 59);
+            cmdGrabar.TabIndex = 26;
+            cmdGrabar.Text = "Grabar";
+            cmdGrabar.UseVisualStyleBackColor = false;
+            cmdGrabar.Click += cmdGrabar_Click;
+            // 
+            // cmdCancelar
+            // 
+            cmdCancelar.BackColor = SystemColors.ActiveCaption;
+            cmdCancelar.Cursor = Cursors.Hand;
+            cmdCancelar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdCancelar.Location = new Point(692, 789);
+            cmdCancelar.Name = "cmdCancelar";
+            cmdCancelar.Size = new Size(105, 59);
+            cmdCancelar.TabIndex = 27;
+            cmdCancelar.Text = "Cancelar";
+            cmdCancelar.UseVisualStyleBackColor = false;
+            cmdCancelar.Click += cmdCancelar_Click;
+            // 
+            // cmdSalir
+            // 
+            cmdSalir.BackColor = Color.IndianRed;
+            cmdSalir.Cursor = Cursors.Hand;
+            cmdSalir.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdSalir.Location = new Point(839, 789);
+            cmdSalir.Name = "cmdSalir";
+            cmdSalir.Size = new Size(105, 59);
+            cmdSalir.TabIndex = 28;
+            cmdSalir.Text = "Salir";
+            cmdSalir.UseVisualStyleBackColor = false;
+            cmdSalir.Click += cmdSalir_Click;
+            // 
+            // cmdOK
+            // 
+            cmdOK.BackColor = Color.LightGreen;
+            cmdOK.Cursor = Cursors.Hand;
+            cmdOK.Enabled = false;
+            cmdOK.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdOK.Location = new Point(1158, 637);
+            cmdOK.Name = "cmdOK";
+            cmdOK.Size = new Size(105, 59);
+            cmdOK.TabIndex = 29;
+            cmdOK.Text = "OK";
+            cmdOK.UseVisualStyleBackColor = false;
+            cmdOK.Click += cmdOK_Click;
+            // 
+            // txtTotal
+            // 
+            txtTotal.Enabled = false;
+            txtTotal.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtTotal.Location = new Point(1060, 780);
+            txtTotal.Name = "txtTotal";
+            txtTotal.Size = new Size(169, 27);
+            txtTotal.TabIndex = 10;
+            txtTotal.Text = "0";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label20.Location = new Point(1004, 784);
+            label20.Name = "label20";
+            label20.Size = new Size(50, 23);
+            label20.TabIndex = 9;
+            label20.Text = "Total:";
             // 
             // Ordenes
             // 
@@ -511,21 +619,22 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1268, 860);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox11);
-            Controls.Add(textBox10);
+            Controls.Add(txtTotal);
+            Controls.Add(label20);
+            Controls.Add(cmdOK);
+            Controls.Add(cmdSalir);
+            Controls.Add(cmdCancelar);
+            Controls.Add(cmdGrabar);
+            Controls.Add(cmdNuevo);
+            Controls.Add(dgvOrden);
+            Controls.Add(txtFecha);
+            Controls.Add(txtNumPedido);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(label5);
-            Cursor = Cursors.Hand;
             Name = "Ordenes";
             Text = "Registrar Pedido";
             Load += Ordenes_Load;
@@ -535,7 +644,7 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrden).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -547,7 +656,7 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private ComboBox comboBox1;
+        private ComboBox cbxCliente;
         private Label label10;
         private Label label9;
         private Label label8;
@@ -555,34 +664,43 @@
         private Label label3;
         private Label label6;
         private Label label4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private TextBox textBox7;
-        private TextBox textBox8;
-        private TextBox textBox9;
+        private TextBox txtTelefonoCliente;
+        private TextBox txtDireccionCliente;
+        private TextBox txtIdCliente;
+        private TextBox txtPrecioMenu;
+        private TextBox txtDescripcionMenu;
+        private TextBox txtIdPlatillo;
         private Label label18;
         private Label label15;
         private Label label17;
-        private ComboBox comboBox3;
+        private ComboBox cbxPlatillo;
         private Label label16;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox txtVehiculoRep;
+        private TextBox txtTelefonoRep;
+        private TextBox txtIdRep;
         private Label label14;
-        private ComboBox comboBox2;
+        private ComboBox cbxRepartidor;
         private Label label13;
         private Label label11;
         private Label label12;
-        private TextBox textBox10;
-        private TextBox textBox11;
-        private TextBox textBox12;
+        private TextBox txtNumPedido;
+        private TextBox txtFecha;
+        private TextBox txtCantidad;
         private Label label19;
-        private DataGridView dataGridView1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private DataGridView dgvOrden;
+        private Button cmdNuevo;
+        private Button cmdGrabar;
+        private Button cmdCancelar;
+        private Button cmdSalir;
+        private Button cmdOK;
+        private TextBox txtTotal;
+        private Label label20;
+        private DataGridViewTextBoxColumn Cliente;
+        private DataGridViewTextBoxColumn Repartidor;
+        private DataGridViewTextBoxColumn Platillo;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn Importe;
+        private DataGridViewTextBoxColumn IVA;
     }
 }

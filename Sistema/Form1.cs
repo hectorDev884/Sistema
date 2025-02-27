@@ -45,5 +45,18 @@ namespace Sistema
                 Application.OpenForms["Cliente"].Focus();
             }
         }
+
+        private void cmdRegPedido_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["Ordenes"] == null)
+            {
+                Ordenes rep = new Ordenes();
+                rep.Show();
+            }
+            else
+            {
+                Application.OpenForms["Ordenes"].Focus();
+            }
+        }
     }
 }
