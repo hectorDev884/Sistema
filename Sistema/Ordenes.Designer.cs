@@ -65,21 +65,25 @@
             label12 = new Label();
             txtNumPedido = new TextBox();
             txtFecha = new TextBox();
-            dgvOrden = new DataGridView();
-            Cliente = new DataGridViewTextBoxColumn();
-            Repartidor = new DataGridViewTextBoxColumn();
-            Platillo = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            Importe = new DataGridViewTextBoxColumn();
-            IVA = new DataGridViewTextBoxColumn();
             cmdNuevo = new Button();
             cmdGrabar = new Button();
             cmdCancelar = new Button();
             cmdSalir = new Button();
             cmdOK = new Button();
-            txtTotal = new TextBox();
+            txtSubTotal = new TextBox();
             label20 = new Label();
+            Platillo = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            cmdBuscar = new Button();
+            dgvOrden = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            txtTotal = new TextBox();
+            label21 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -464,68 +468,6 @@
             txtFecha.Size = new Size(233, 27);
             txtFecha.TabIndex = 23;
             // 
-            // dgvOrden
-            // 
-            dgvOrden.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvOrden.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrden.Columns.AddRange(new DataGridViewColumn[] { Cliente, Repartidor, Platillo, Precio, Cantidad, Importe, IVA });
-            dgvOrden.Location = new Point(157, 595);
-            dgvOrden.Name = "dgvOrden";
-            dgvOrden.ReadOnly = true;
-            dgvOrden.RowHeadersWidth = 51;
-            dgvOrden.Size = new Size(950, 161);
-            dgvOrden.TabIndex = 24;
-            dgvOrden.CellContentClick += dgvOrden_CellContentClick;
-            // 
-            // Cliente
-            // 
-            Cliente.HeaderText = "Cliente";
-            Cliente.MinimumWidth = 6;
-            Cliente.Name = "Cliente";
-            Cliente.ReadOnly = true;
-            // 
-            // Repartidor
-            // 
-            Repartidor.HeaderText = "Repartidor";
-            Repartidor.MinimumWidth = 6;
-            Repartidor.Name = "Repartidor";
-            Repartidor.ReadOnly = true;
-            // 
-            // Platillo
-            // 
-            Platillo.HeaderText = "Platillo";
-            Platillo.MinimumWidth = 6;
-            Platillo.Name = "Platillo";
-            Platillo.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.MinimumWidth = 6;
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.MinimumWidth = 6;
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
-            // 
-            // Importe
-            // 
-            Importe.HeaderText = "Importe";
-            Importe.MinimumWidth = 6;
-            Importe.Name = "Importe";
-            Importe.ReadOnly = true;
-            // 
-            // IVA
-            // 
-            IVA.HeaderText = "IVA";
-            IVA.MinimumWidth = 6;
-            IVA.Name = "IVA";
-            IVA.ReadOnly = true;
-            // 
             // cmdNuevo
             // 
             cmdNuevo.BackColor = SystemColors.ActiveCaption;
@@ -593,25 +535,126 @@
             cmdOK.UseVisualStyleBackColor = false;
             cmdOK.Click += cmdOK_Click;
             // 
-            // txtTotal
+            // txtSubTotal
             // 
-            txtTotal.Enabled = false;
-            txtTotal.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            txtTotal.Location = new Point(1060, 780);
-            txtTotal.Name = "txtTotal";
-            txtTotal.Size = new Size(169, 27);
-            txtTotal.TabIndex = 10;
-            txtTotal.Text = "0";
+            txtSubTotal.Enabled = false;
+            txtSubTotal.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtSubTotal.Location = new Point(1060, 780);
+            txtSubTotal.Name = "txtSubTotal";
+            txtSubTotal.Size = new Size(169, 27);
+            txtSubTotal.TabIndex = 10;
+            txtSubTotal.Text = "0";
             // 
             // label20
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(1004, 784);
+            label20.Location = new Point(976, 780);
             label20.Name = "label20";
-            label20.Size = new Size(50, 23);
+            label20.Size = new Size(78, 23);
             label20.TabIndex = 9;
-            label20.Text = "Total:";
+            label20.Text = "Subtotal:";
+            // 
+            // Platillo
+            // 
+            Platillo.HeaderText = "Platillo";
+            Platillo.MinimumWidth = 6;
+            Platillo.Name = "Platillo";
+            Platillo.Width = 128;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            Precio.Width = 129;
+            // 
+            // Cantidad
+            // 
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.MinimumWidth = 6;
+            Cantidad.Name = "Cantidad";
+            Cantidad.Width = 128;
+            // 
+            // cmdBuscar
+            // 
+            cmdBuscar.BackColor = SystemColors.ActiveCaption;
+            cmdBuscar.Cursor = Cursors.Hand;
+            cmdBuscar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdBuscar.Location = new Point(157, 789);
+            cmdBuscar.Name = "cmdBuscar";
+            cmdBuscar.Size = new Size(105, 59);
+            cmdBuscar.TabIndex = 30;
+            cmdBuscar.Text = "Buscar";
+            cmdBuscar.UseVisualStyleBackColor = false;
+            cmdBuscar.Click += cmdBuscar_Click;
+            // 
+            // dgvOrden
+            // 
+            dgvOrden.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrden.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrden.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
+            dgvOrden.Location = new Point(157, 595);
+            dgvOrden.Name = "dgvOrden";
+            dgvOrden.ReadOnly = true;
+            dgvOrden.RowHeadersWidth = 51;
+            dgvOrden.Size = new Size(950, 161);
+            dgvOrden.TabIndex = 24;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "IdMenu";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Platillo";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Precio";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Cantidad";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Importe";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            // 
+            // txtTotal
+            // 
+            txtTotal.Enabled = false;
+            txtTotal.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtTotal.Location = new Point(1060, 821);
+            txtTotal.Name = "txtTotal";
+            txtTotal.Size = new Size(169, 27);
+            txtTotal.TabIndex = 32;
+            txtTotal.Text = "0";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.Location = new Point(976, 821);
+            label21.Name = "label21";
+            label21.Size = new Size(50, 23);
+            label21.TabIndex = 31;
+            label21.Text = "Total:";
             // 
             // Ordenes
             // 
@@ -620,6 +663,9 @@
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1268, 860);
             Controls.Add(txtTotal);
+            Controls.Add(label21);
+            Controls.Add(cmdBuscar);
+            Controls.Add(txtSubTotal);
             Controls.Add(label20);
             Controls.Add(cmdOK);
             Controls.Add(cmdSalir);
@@ -636,6 +682,7 @@
             Controls.Add(label1);
             Controls.Add(label5);
             Name = "Ordenes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Pedido";
             Load += Ordenes_Load;
             panel1.ResumeLayout(false);
@@ -687,20 +734,24 @@
         private TextBox txtFecha;
         private TextBox txtCantidad;
         private Label label19;
-        private DataGridView dgvOrden;
         private Button cmdNuevo;
         private Button cmdGrabar;
         private Button cmdCancelar;
         private Button cmdSalir;
         private Button cmdOK;
-        private TextBox txtTotal;
+        private TextBox txtSubTotal;
         private Label label20;
-        private DataGridViewTextBoxColumn Cliente;
-        private DataGridViewTextBoxColumn Repartidor;
         private DataGridViewTextBoxColumn Platillo;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn Importe;
-        private DataGridViewTextBoxColumn IVA;
+        private Button cmdBuscar;
+        private DataGridView dgvOrden;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private TextBox txtTotal;
+        private Label label21;
     }
 }

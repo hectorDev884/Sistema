@@ -58,5 +58,10 @@ namespace Sistema
                 Application.OpenForms["Ordenes"].Focus();
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

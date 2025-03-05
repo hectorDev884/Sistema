@@ -19,9 +19,6 @@ namespace Sistema
         DateTime now = DateTime.Now;
         double importe = 0;
         double total = 0;
-        List<string> idPlatillos = new List<string>();
-        List<string> cantidades = new List<string>();
-        List<string> precios = new List<string>();
         public Ordenes()
         {
             InitializeComponent();
@@ -45,15 +42,12 @@ namespace Sistema
 
         private void FillGrid()
         {
-            double IVA = importe * 0.16;
             dgvOrden.Rows.Add(
-                cbxCliente.Text,
-                cbxRepartidor.Text,
+                txtIdPlatillo.Text,
                 cbxPlatillo.Text,
                 txtPrecioMenu.Text,
                 txtCantidad.Text,
-                importe,
-                IVA
+                importe
                 );
 
         }
@@ -154,10 +148,7 @@ namespace Sistema
             cbxRepartidor.Enabled = true;
             cbxPlatillo.Enabled = true;
             dgvOrden.Rows.Clear();
-            txtTotal.Text = "0";
-            idPlatillos.Clear();
-            precios.Clear();
-            cantidades.Clear();
+            txtSubTotal.Text = "0";
         }
 
         private void cmdGrabar_Click(object sender, EventArgs e)
@@ -171,16 +162,21 @@ namespace Sistema
             command.Parameters.AddWithValue("@Total", total);
             command.ExecuteNonQuery();
 
-            for (int i = 0; i < idPlatillos.Count; i++)
+            for (int i = 0; i < dgvOrden.Rows.Count - 1; i++)
             {
-                command.CommandText = $"INSERT INTO DetalleOrden VALUES" +
-                    $"({Convert.ToInt32(txtNumPedido.Text)}" +
-                    $", {Convert.ToInt32(idPlatillos[i])}" +
-                    $", {Convert.ToInt32(cantidades[i])}" +
-                    $", {Convert.ToDouble(precios[i])})";
-                command.ExecuteNonQuery();
-            }
+                int campoId = Convert.ToInt32(txtNumPedido.Text);
+                int campoIdMenu = Convert.ToInt32(dgvOrden.Rows[i].Cells[0].Value);
+                int cantidad = Convert.ToInt32(dgvOrden.Rows[i].Cells[3].Value);
+                double precio = Convert.ToDouble(dgvOrden.Rows[i].Cells[2].Value);
 
+                command.CommandText = $"INSERT INTO DetalleOrden VALUES" +
+                    $"({campoId}" +
+                    $", {campoIdMenu}" +
+                    $", {cantidad}" +
+                    $", {precio})";
+                command.ExecuteNonQuery();
+
+            }
         }
 
         private void cmdCancelar_Click(object sender, EventArgs e)
@@ -197,21 +193,46 @@ namespace Sistema
             cbxCliente.Enabled = false;
             cbxRepartidor.Enabled = false;
             cmdGrabar.Enabled = true;
-            idPlatillos.Add(txtIdPlatillo.Text);
-            precios.Add(txtPrecioMenu.Text);
-            cantidades.Add(txtCantidad.Text);
 
             importe = Convert.ToDouble(txtPrecioMenu.Text) * Convert.ToInt32(txtCantidad.Text);
             FillGrid();
-            total += importe * 1.16;
-            txtTotal.Text = total.ToString();
+            total += importe;
+            txtSubTotal.Text = total.ToString();
+            txtTotal.Text = (Convert.ToDouble(txtSubTotal.Text) * 1.16).ToString();
             cbxPlatillo.SelectedIndex = 0;
 
         }
 
-        private void dgvOrden_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void cmdBuscar_Click(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Orden"));
+            command.CommandText = "SELECT IdOrden FROM Ordenes WHERE IdOrden = @Id";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Id", id);
+            SqlDataReader reader = command.ExecuteReader();
 
+            if (reader.Read()) ShowQuery(reader.GetValue(0).ToString());
+
+            else MessageBox.Show($"No se encontro el ID: {id}");
+
+            reader.Close();
+        }
+
+        private void ShowQuery(string id)
+        {
+            if (Application.OpenForms["DetalleOrden"] == null)
+            {
+                DetalleOrden dt = new DetalleOrden();
+                dt.Show();
+                dt.SetIdOrden(id);
+                //dt.GetOrdenData();
+                //dt.GetDetalleOrden();
+
+            }
+            else
+            {
+                Application.OpenForms["DetalleOrden"].Focus();
+            }
         }
     }
 }

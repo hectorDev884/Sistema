@@ -121,7 +121,9 @@
             Controls.Add(cmdClientes);
             Controls.Add(label5);
             Name = "Form1";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = " ";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
