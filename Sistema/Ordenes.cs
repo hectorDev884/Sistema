@@ -42,14 +42,16 @@ namespace Sistema
 
         private void FillGrid()
         {
-            dgvOrden.Rows.Add(
-                txtIdPlatillo.Text,
-                cbxPlatillo.Text,
-                txtPrecioMenu.Text,
-                txtCantidad.Text,
-                importe
-                );
-
+            if (!CheckDetalleOrden())
+            {
+                dgvOrden.Rows.Add(
+                                txtIdPlatillo.Text,
+                                cbxPlatillo.Text,
+                                txtPrecioMenu.Text,
+                                txtCantidad.Text,
+                                importe
+                                );
+            }
         }
 
         private void FillComboBox()
@@ -151,6 +153,31 @@ namespace Sistema
             txtSubTotal.Text = "0";
         }
 
+        private bool CheckDetalleOrden()
+        {
+            int existentId = Convert.ToInt32(txtIdPlatillo.Text);
+            int cantidad = Convert.ToInt32(txtCantidad.Text);
+            for (int i = 0; i < dgvOrden.Rows.Count - 1; i++)
+            {
+                int campoIdMenu = Convert.ToInt32(dgvOrden.Rows[i].Cells[0].Value);
+
+                if (campoIdMenu == existentId)
+                {
+
+                    cantidad += Convert.ToInt32(dgvOrden.Rows[i].Cells[3].Value);
+                    double precio = Convert.ToDouble(dgvOrden.Rows[i].Cells[2].Value);
+                    dgvOrden.Rows[i].Cells[4].Value = cantidad * precio;
+                    dgvOrden.Rows[i].Cells[3].Value = cantidad;
+                    MessageBox.Show("Detalle ya existe, sumando cantidad.");
+                    //dgvOrden.Rows[i].Cells[3].Value += cantidad; cannot convert object to int
+                    return true;
+                }
+
+            }
+
+            return false;
+        }
+
         private void cmdGrabar_Click(object sender, EventArgs e)
         {
             SetStatus(true, false, false);
@@ -175,7 +202,6 @@ namespace Sistema
                     $", {cantidad}" +
                     $", {precio})";
                 command.ExecuteNonQuery();
-
             }
         }
 

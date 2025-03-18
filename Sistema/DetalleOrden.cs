@@ -48,7 +48,7 @@ namespace Sistema
 
             reader.Read();
             txtFecha.Text = reader.GetValue(0).ToString();
-            txtEstado.Text = $"'{reader.GetValue(1).ToString()}'";
+            txtEstado.Text = $"{reader.GetValue(1).ToString()}";
             txtIdCliente.Text = reader.GetInt32(2).ToString();
             txtCliente.Text = reader.GetValue(3).ToString();
             txtDireccionCliente.Text = reader.GetValue(4).ToString();
@@ -89,25 +89,10 @@ namespace Sistema
             Close();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UpdateState()
-        {
-            string query = $"SELECT Estado FROM Ordenes WHERE IdOrden = {Convert.ToInt32(txtIdOrden.Text)}";
-            command.CommandText = query;
-            SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-            txtEstado.Text = $"'{reader.GetValue(0).ToString()}'";
-            reader.Close();
-        }
-
         private void cmdCancelar_Click(object sender, EventArgs e)
         {
-            if (txtEstado.Text.Equals("'C'")) MessageBox.Show("La orden ya esta cancelada");
-            else if (txtEstado.Text.Equals("'P'")) MessageBox.Show("La orden ya esta pagada");
+            if (txtEstado.Text.Equals("C")) MessageBox.Show("La orden ya esta cancelada");
+            else if (txtEstado.Text.Equals("P")) MessageBox.Show("La orden ya esta pagada");
             else
             {
                 string query = $"UPDATE Ordenes SET Estado='C' " +
@@ -115,14 +100,15 @@ namespace Sistema
                                 $"AND (Estado = 'R' OR Estado = 'S')";
                 command.CommandText = query;
                 command.ExecuteNonQuery();
-                UpdateState();
+                txtEstado.Text = "C";
             }
         }
 
         private void cmdSurtir_Click(object sender, EventArgs e)
         {
-            if (txtEstado.Text.Equals("'S'")) MessageBox.Show("La orden ya esta surtida");
-            else if (txtEstado.Text.Equals("'C'")) MessageBox.Show("La orden esta cancelada");
+            if (txtEstado.Text.Equals("S")) MessageBox.Show("La orden ya esta surtida");
+            else if (txtEstado.Text.Equals("C")) MessageBox.Show("La orden esta cancelada");
+            else if (txtEstado.Text.Equals("P")) MessageBox.Show("La orden ya esta pagada");
             else
             {
                 string query = $"UPDATE Ordenes SET Estado='S' " +
@@ -130,15 +116,15 @@ namespace Sistema
                                 $"AND (Estado = 'R' AND NOT Estado = 'C')";
                 command.CommandText = query;
                 command.ExecuteNonQuery();
-                UpdateState();
+                txtEstado.Text = "S";
             }
         }
 
         private void cmdPagar_Click(object sender, EventArgs e)
         {
-            if (txtEstado.Text.Equals("'P'")) MessageBox.Show("La orden ya esta pagada");
-            else if (txtEstado.Text.Equals("'C'")) MessageBox.Show("La orden esta cancelada");
-            else if (txtEstado.Text.Equals("'R'")) MessageBox.Show("La orden debe estar surtida");
+            if (txtEstado.Text.Equals("P")) MessageBox.Show("La orden ya esta pagada");
+            else if (txtEstado.Text.Equals("C")) MessageBox.Show("La orden esta cancelada");
+            else if (txtEstado.Text.Equals("R")) MessageBox.Show("La orden debe estar surtida");
             else
             {
                 string query = $"UPDATE Ordenes SET Estado='P' " +
@@ -146,7 +132,7 @@ namespace Sistema
                                 $"AND (Estado = 'S' AND NOT Estado = 'C')";
                 command.CommandText = query;
                 command.ExecuteNonQuery();
-                UpdateState();
+                txtEstado.Text = "P";
             }
         }
     }
