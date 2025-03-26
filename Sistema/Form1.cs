@@ -63,5 +63,18 @@ namespace Sistema
         {
 
         }
+
+        private void cmdConsultas_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["ConsultasParticulares"] == null)
+            {
+                ConsultasParticulares rep = new ConsultasParticulares();
+                rep.Show();
+            }
+            else
+            {
+                Application.OpenForms["ConsultasParticulares"].Focus();
+            }
+        }
     }
 }

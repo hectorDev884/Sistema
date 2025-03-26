@@ -69,3 +69,4 @@ C:\Users\darkn\OneDrive\Escritorio\Universidad\PracticasRaquel\Sistema\Sistema\o
 C:\Users\darkn\OneDrive\Escritorio\Universidad\PracticasRaquel\Sistema\Sistema\obj\Debug\net8.0-windows\Sistema.genruntimeconfig.cache
 C:\Users\darkn\OneDrive\Escritorio\Universidad\PracticasRaquel\Sistema\Sistema\obj\Debug\net8.0-windows\ref\Sistema.dll
 C:\Users\darkn\OneDrive\Escritorio\Universidad\PracticasRaquel\Sistema\Sistema\obj\Debug\net8.0-windows\Sistema.sourcelink.json
+C:\Users\darkn\OneDrive\Escritorio\Universidad\PracticasRaquel\Sistema\Sistema\obj\Debug\net8.0-windows\Sistema.ConsultasParticulares.resources

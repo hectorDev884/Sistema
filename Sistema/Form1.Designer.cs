@@ -34,6 +34,7 @@
             cmdRepartidores = new Button();
             label1 = new Label();
             cmdRegPedido = new Button();
+            cmdConsultas = new Button();
             SuspendLayout();
             // 
             // label5
@@ -100,7 +101,7 @@
             cmdRegPedido.BackColor = Color.RosyBrown;
             cmdRegPedido.Cursor = Cursors.Hand;
             cmdRegPedido.Font = new Font("Consolas", 16.2F);
-            cmdRegPedido.Location = new Point(415, 396);
+            cmdRegPedido.Location = new Point(291, 393);
             cmdRegPedido.Name = "cmdRegPedido";
             cmdRegPedido.Size = new Size(214, 137);
             cmdRegPedido.TabIndex = 40;
@@ -108,12 +109,26 @@
             cmdRegPedido.UseVisualStyleBackColor = false;
             cmdRegPedido.Click += cmdRegPedido_Click;
             // 
+            // cmdConsultas
+            // 
+            cmdConsultas.BackColor = Color.RosyBrown;
+            cmdConsultas.Cursor = Cursors.Hand;
+            cmdConsultas.Font = new Font("Consolas", 16.2F);
+            cmdConsultas.Location = new Point(557, 393);
+            cmdConsultas.Name = "cmdConsultas";
+            cmdConsultas.Size = new Size(214, 137);
+            cmdConsultas.TabIndex = 41;
+            cmdConsultas.Text = "Consultas";
+            cmdConsultas.UseVisualStyleBackColor = false;
+            cmdConsultas.Click += cmdConsultas_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(996, 590);
+            Controls.Add(cmdConsultas);
             Controls.Add(cmdRegPedido);
             Controls.Add(label1);
             Controls.Add(cmdMenu);
@@ -136,5 +151,6 @@
         private Button cmdRepartidores;
         private Label label1;
         private Button cmdRegPedido;
+        private Button cmdConsultas;
     }
 }
