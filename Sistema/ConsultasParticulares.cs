@@ -51,6 +51,11 @@ namespace Sistema
                 FillDataGrid(r);
                 return;
             }
+
+            else
+            {
+
+            }
         }
 
         private void cmdAceptar_Click(object sender, EventArgs e)
