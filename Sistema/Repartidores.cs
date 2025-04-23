@@ -73,6 +73,9 @@ namespace Sistema
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
             GetData();
+            cmdNuevo.Enabled = true;
+            cmdGrabar.Enabled = false;
+            cmdModificar.Enabled = false;
             EnableTexts(false);
         }
 

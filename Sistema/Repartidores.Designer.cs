@@ -50,40 +50,44 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            label1.ForeColor = Color.FromArgb(34, 34, 34);
             label1.Location = new Point(34, 101);
             label1.Name = "label1";
-            label1.Size = new Size(154, 31);
+            label1.Size = new Size(157, 31);
             label1.TabIndex = 0;
             label1.Text = "IdRepartidor:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(34, 34, 34);
             label2.Location = new Point(25, 180);
             label2.Name = "label2";
-            label2.Size = new Size(107, 31);
+            label2.Size = new Size(108, 31);
             label2.TabIndex = 1;
             label2.Text = "Nombre:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            label3.ForeColor = Color.FromArgb(34, 34, 34);
             label3.Location = new Point(26, 245);
             label3.Name = "label3";
-            label3.Size = new Size(109, 31);
+            label3.Size = new Size(113, 31);
             label3.TabIndex = 2;
             label3.Text = "Vehículo:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            label4.ForeColor = Color.FromArgb(34, 34, 34);
             label4.Location = new Point(27, 332);
             label4.Name = "label4";
-            label4.Size = new Size(110, 31);
+            label4.Size = new Size(113, 31);
             label4.TabIndex = 3;
             label4.Text = "Teléfono:";
             // 
@@ -134,82 +138,110 @@
             // 
             // cmdCancelar
             // 
-            cmdCancelar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdCancelar.BackColor = Color.FromArgb(98, 129, 155);
+            cmdCancelar.FlatAppearance.BorderSize = 0;
+            cmdCancelar.FlatAppearance.MouseOverBackColor = Color.FromArgb(84, 109, 137);
+            cmdCancelar.FlatStyle = FlatStyle.Flat;
+            cmdCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            cmdCancelar.ForeColor = Color.White;
             cmdCancelar.Location = new Point(218, 486);
             cmdCancelar.Name = "cmdCancelar";
             cmdCancelar.Size = new Size(131, 55);
             cmdCancelar.TabIndex = 9;
             cmdCancelar.Text = "Cancelar";
-            cmdCancelar.UseVisualStyleBackColor = true;
+            cmdCancelar.UseVisualStyleBackColor = false;
             cmdCancelar.Click += cmdCancelar_Click;
             // 
             // cmdBuscar
             // 
-            cmdBuscar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdBuscar.BackColor = Color.FromArgb(98, 129, 155);
+            cmdBuscar.FlatAppearance.BorderSize = 0;
+            cmdBuscar.FlatAppearance.MouseOverBackColor = Color.FromArgb(84, 109, 137);
+            cmdBuscar.FlatStyle = FlatStyle.Flat;
+            cmdBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            cmdBuscar.ForeColor = Color.White;
             cmdBuscar.Location = new Point(372, 486);
             cmdBuscar.Name = "cmdBuscar";
             cmdBuscar.Size = new Size(131, 55);
             cmdBuscar.TabIndex = 12;
             cmdBuscar.Text = "Buscar";
-            cmdBuscar.UseVisualStyleBackColor = true;
+            cmdBuscar.UseVisualStyleBackColor = false;
             cmdBuscar.Click += cmdBuscar_Click;
             // 
             // cmdGrabar
             // 
-            cmdGrabar.Cursor = Cursors.Hand;
+            cmdGrabar.BackColor = Color.FromArgb(67, 159, 117);
             cmdGrabar.Enabled = false;
-            cmdGrabar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdGrabar.FlatAppearance.BorderSize = 0;
+            cmdGrabar.FlatAppearance.MouseOverBackColor = Color.FromArgb(89, 167, 122);
+            cmdGrabar.FlatStyle = FlatStyle.Flat;
+            cmdGrabar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            cmdGrabar.ForeColor = Color.White;
             cmdGrabar.Location = new Point(218, 412);
             cmdGrabar.Name = "cmdGrabar";
             cmdGrabar.Size = new Size(131, 55);
             cmdGrabar.TabIndex = 16;
             cmdGrabar.Text = "Grabar";
-            cmdGrabar.UseVisualStyleBackColor = true;
+            cmdGrabar.UseVisualStyleBackColor = false;
             cmdGrabar.Click += cmdGrabar_Click;
             // 
             // cmdModificar
             // 
+            cmdModificar.BackColor = Color.FromArgb(67, 159, 117);
             cmdModificar.Enabled = false;
-            cmdModificar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdModificar.FlatAppearance.BorderSize = 0;
+            cmdModificar.FlatAppearance.MouseOverBackColor = Color.FromArgb(89, 167, 122);
+            cmdModificar.FlatStyle = FlatStyle.Flat;
+            cmdModificar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            cmdModificar.ForeColor = Color.White;
             cmdModificar.Location = new Point(372, 412);
             cmdModificar.Name = "cmdModificar";
             cmdModificar.Size = new Size(131, 55);
             cmdModificar.TabIndex = 15;
             cmdModificar.Text = "Modificar";
-            cmdModificar.UseVisualStyleBackColor = true;
+            cmdModificar.UseVisualStyleBackColor = false;
             cmdModificar.Click += cmdModificar_Click;
             // 
             // cmdSalir
             // 
-            cmdSalir.Cursor = Cursors.Hand;
-            cmdSalir.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdSalir.BackColor = Color.FromArgb(98, 129, 155);
+            cmdSalir.FlatAppearance.BorderSize = 0;
+            cmdSalir.FlatAppearance.MouseOverBackColor = Color.FromArgb(84, 109, 137);
+            cmdSalir.FlatStyle = FlatStyle.Flat;
+            cmdSalir.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            cmdSalir.ForeColor = Color.White;
             cmdSalir.Location = new Point(52, 486);
             cmdSalir.Name = "cmdSalir";
             cmdSalir.Size = new Size(131, 55);
             cmdSalir.TabIndex = 14;
             cmdSalir.Text = "Salir";
-            cmdSalir.UseVisualStyleBackColor = true;
+            cmdSalir.UseVisualStyleBackColor = false;
             cmdSalir.Click += cmdSalir_Click;
             // 
             // cmdNuevo
             // 
-            cmdNuevo.Cursor = Cursors.Hand;
-            cmdNuevo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdNuevo.BackColor = Color.FromArgb(98, 129, 155);
+            cmdNuevo.FlatAppearance.BorderSize = 0;
+            cmdNuevo.FlatAppearance.MouseOverBackColor = Color.FromArgb(84, 109, 137);
+            cmdNuevo.FlatStyle = FlatStyle.Flat;
+            cmdNuevo.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            cmdNuevo.ForeColor = Color.White;
             cmdNuevo.Location = new Point(52, 412);
             cmdNuevo.Name = "cmdNuevo";
             cmdNuevo.Size = new Size(131, 55);
             cmdNuevo.TabIndex = 13;
             cmdNuevo.Text = "Nuevo";
-            cmdNuevo.UseVisualStyleBackColor = true;
+            cmdNuevo.UseVisualStyleBackColor = false;
             cmdNuevo.Click += cmdNuevo_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial", 19.8000011F, FontStyle.Bold);
+            label5.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label5.ForeColor = Color.FromArgb(34, 34, 34);
             label5.Location = new Point(402, 20);
             label5.Name = "label5";
-            label5.Size = new Size(229, 40);
+            label5.Size = new Size(249, 44);
             label5.TabIndex = 17;
             label5.Text = "Repartidores";
             // 
@@ -217,7 +249,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
+            BackColor = Color.FromArgb(245, 245, 245);
             ClientSize = new Size(1068, 566);
             Controls.Add(label5);
             Controls.Add(cmdGrabar);

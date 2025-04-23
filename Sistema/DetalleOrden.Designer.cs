@@ -90,9 +90,10 @@
             // 
             // cmdSalir
             // 
-            cmdSalir.BackColor = Color.IndianRed;
+            cmdSalir.BackColor = Color.Firebrick;
             cmdSalir.Cursor = Cursors.Hand;
             cmdSalir.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdSalir.ForeColor = Color.White;
             cmdSalir.Location = new Point(1024, 77);
             cmdSalir.Name = "cmdSalir";
             cmdSalir.Size = new Size(131, 55);
@@ -104,20 +105,20 @@
             // nOrden
             // 
             nOrden.AutoSize = true;
-            nOrden.Font = new Font("Arial", 19.8000011F, FontStyle.Bold);
+            nOrden.Font = new Font("Arial", 22F, FontStyle.Bold);
             nOrden.Location = new Point(415, 9);
             nOrden.Name = "nOrden";
-            nOrden.Size = new Size(145, 40);
+            nOrden.Size = new Size(160, 44);
             nOrden.TabIndex = 17;
             nOrden.Text = "Orden #";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial", 19.8000011F, FontStyle.Bold);
+            label3.Font = new Font("Arial", 22F, FontStyle.Bold);
             label3.Location = new Point(41, 415);
             label3.Name = "label3";
-            label3.Size = new Size(281, 40);
+            label3.Size = new Size(309, 44);
             label3.TabIndex = 19;
             label3.Text = "Detalle de orden";
             // 
@@ -414,9 +415,10 @@
             // 
             // cmdCancelar
             // 
-            cmdCancelar.BackColor = Color.IndianRed;
+            cmdCancelar.BackColor = Color.FromArgb(67, 159, 117);
             cmdCancelar.Cursor = Cursors.Hand;
             cmdCancelar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdCancelar.ForeColor = Color.White;
             cmdCancelar.Location = new Point(377, 759);
             cmdCancelar.Name = "cmdCancelar";
             cmdCancelar.Size = new Size(131, 55);
@@ -427,9 +429,10 @@
             // 
             // cmdSurtir
             // 
-            cmdSurtir.BackColor = Color.Beige;
+            cmdSurtir.BackColor = Color.FromArgb(98, 129, 155);
             cmdSurtir.Cursor = Cursors.Hand;
             cmdSurtir.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdSurtir.ForeColor = Color.White;
             cmdSurtir.Location = new Point(546, 759);
             cmdSurtir.Name = "cmdSurtir";
             cmdSurtir.Size = new Size(131, 55);
@@ -440,9 +443,10 @@
             // 
             // cmdPagar
             // 
-            cmdPagar.BackColor = Color.YellowGreen;
+            cmdPagar.BackColor = Color.FromArgb(67, 159, 117);
             cmdPagar.Cursor = Cursors.Hand;
             cmdPagar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdPagar.ForeColor = Color.White;
             cmdPagar.Location = new Point(709, 759);
             cmdPagar.Name = "cmdPagar";
             cmdPagar.Size = new Size(131, 55);
@@ -455,7 +459,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1256, 850);
             Controls.Add(cmdPagar);
             Controls.Add(cmdSurtir);

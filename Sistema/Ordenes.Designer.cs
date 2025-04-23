@@ -122,7 +122,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.WhiteSmoke;
+            panel1.BackColor = Color.FromArgb(98, 129, 155);
             panel1.Controls.Add(txtTelefonoCliente);
             panel1.Controls.Add(txtDireccionCliente);
             panel1.Controls.Add(txtIdCliente);
@@ -132,6 +132,7 @@
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label3);
+            panel1.ForeColor = Color.White;
             panel1.Location = new Point(49, 152);
             panel1.Name = "panel1";
             panel1.Size = new Size(1180, 130);
@@ -226,7 +227,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.LightGray;
+            panel2.BackColor = Color.FromArgb(98, 129, 155);
             panel2.Controls.Add(txtCantidad);
             panel2.Controls.Add(label19);
             panel2.Controls.Add(txtPrecioMenu);
@@ -238,6 +239,7 @@
             panel2.Controls.Add(label17);
             panel2.Controls.Add(cbxPlatillo);
             panel2.Controls.Add(label16);
+            panel2.ForeColor = Color.White;
             panel2.Location = new Point(49, 424);
             panel2.Name = "panel2";
             panel2.Size = new Size(1180, 151);
@@ -350,7 +352,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.Azure;
+            panel3.BackColor = Color.FromArgb(98, 129, 155);
             panel3.Controls.Add(txtVehiculoRep);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(txtTelefonoRep);
@@ -360,6 +362,7 @@
             panel3.Controls.Add(label13);
             panel3.Controls.Add(label11);
             panel3.Controls.Add(label12);
+            panel3.ForeColor = Color.White;
             panel3.Location = new Point(49, 288);
             panel3.Name = "panel3";
             panel3.Size = new Size(1180, 130);
@@ -523,10 +526,11 @@
             // 
             // cmdOK
             // 
-            cmdOK.BackColor = Color.LightGreen;
+            cmdOK.BackColor = Color.FromArgb(67, 159, 117);
             cmdOK.Cursor = Cursors.Hand;
             cmdOK.Enabled = false;
             cmdOK.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdOK.ForeColor = Color.White;
             cmdOK.Location = new Point(1158, 637);
             cmdOK.Name = "cmdOK";
             cmdOK.Size = new Size(105, 59);
@@ -660,7 +664,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1268, 860);
             Controls.Add(txtTotal);
             Controls.Add(label21);

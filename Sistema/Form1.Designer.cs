@@ -40,18 +40,23 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(232, -66);
+            label5.Font = new Font("Segoe UI", 22F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(34, 34, 34);
+            label5.Location = new Point(232, 30);
             label5.Name = "label5";
-            label5.Size = new Size(290, 40);
+            label5.Size = new Size(345, 50);
             label5.TabIndex = 35;
-            label5.Text = "Menu de platillos";
+            label5.Text = "Menu de Opciones";
             // 
             // cmdClientes
             // 
-            cmdClientes.BackColor = SystemColors.Control;
+            cmdClientes.BackColor = Color.FromArgb(98, 129, 155);
             cmdClientes.Cursor = Cursors.Hand;
-            cmdClientes.Font = new Font("Consolas", 16.2F);
+            cmdClientes.FlatAppearance.BorderSize = 0;
+            cmdClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(84, 109, 137);
+            cmdClientes.FlatStyle = FlatStyle.Flat;
+            cmdClientes.Font = new Font("Segoe UI", 16F);
+            cmdClientes.ForeColor = Color.White;
             cmdClientes.Location = new Point(176, 229);
             cmdClientes.Name = "cmdClientes";
             cmdClientes.Size = new Size(214, 137);
@@ -62,9 +67,13 @@
             // 
             // cmdMenu
             // 
-            cmdMenu.BackColor = SystemColors.Control;
+            cmdMenu.BackColor = Color.FromArgb(98, 129, 155);
             cmdMenu.Cursor = Cursors.Hand;
-            cmdMenu.Font = new Font("Consolas", 16.2F);
+            cmdMenu.FlatAppearance.BorderSize = 0;
+            cmdMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(84, 109, 137);
+            cmdMenu.FlatStyle = FlatStyle.Flat;
+            cmdMenu.Font = new Font("Segoe UI", 16F);
+            cmdMenu.ForeColor = Color.White;
             cmdMenu.Location = new Point(667, 229);
             cmdMenu.Name = "cmdMenu";
             cmdMenu.Size = new Size(214, 137);
@@ -75,9 +84,13 @@
             // 
             // cmdRepartidores
             // 
-            cmdRepartidores.BackColor = SystemColors.Control;
+            cmdRepartidores.BackColor = Color.FromArgb(98, 129, 155);
             cmdRepartidores.Cursor = Cursors.Hand;
-            cmdRepartidores.Font = new Font("Consolas", 16.2F);
+            cmdRepartidores.FlatAppearance.BorderSize = 0;
+            cmdRepartidores.FlatAppearance.MouseOverBackColor = Color.FromArgb(84, 109, 137);
+            cmdRepartidores.FlatStyle = FlatStyle.Flat;
+            cmdRepartidores.Font = new Font("Segoe UI", 16F);
+            cmdRepartidores.ForeColor = Color.White;
             cmdRepartidores.Location = new Point(415, 229);
             cmdRepartidores.Name = "cmdRepartidores";
             cmdRepartidores.Size = new Size(214, 137);
@@ -89,18 +102,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(429, 68);
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(34, 34, 34);
+            label1.Location = new Point(429, 80);
             label1.Name = "label1";
-            label1.Size = new Size(154, 41);
+            label1.Size = new Size(158, 41);
             label1.TabIndex = 39;
             label1.Text = "Catálogos";
             // 
             // cmdRegPedido
             // 
-            cmdRegPedido.BackColor = Color.RosyBrown;
+            cmdRegPedido.BackColor = Color.FromArgb(67, 159, 117);
             cmdRegPedido.Cursor = Cursors.Hand;
-            cmdRegPedido.Font = new Font("Consolas", 16.2F);
+            cmdRegPedido.FlatAppearance.BorderSize = 0;
+            cmdRegPedido.FlatAppearance.MouseOverBackColor = Color.FromArgb(89, 167, 122);
+            cmdRegPedido.FlatStyle = FlatStyle.Flat;
+            cmdRegPedido.Font = new Font("Segoe UI", 16F);
+            cmdRegPedido.ForeColor = Color.White;
             cmdRegPedido.Location = new Point(291, 393);
             cmdRegPedido.Name = "cmdRegPedido";
             cmdRegPedido.Size = new Size(214, 137);
@@ -111,9 +129,13 @@
             // 
             // cmdConsultas
             // 
-            cmdConsultas.BackColor = Color.RosyBrown;
+            cmdConsultas.BackColor = Color.FromArgb(67, 159, 117);
             cmdConsultas.Cursor = Cursors.Hand;
-            cmdConsultas.Font = new Font("Consolas", 16.2F);
+            cmdConsultas.FlatAppearance.BorderSize = 0;
+            cmdConsultas.FlatAppearance.MouseOverBackColor = Color.FromArgb(89, 167, 122);
+            cmdConsultas.FlatStyle = FlatStyle.Flat;
+            cmdConsultas.Font = new Font("Segoe UI", 16F);
+            cmdConsultas.ForeColor = Color.White;
             cmdConsultas.Location = new Point(557, 393);
             cmdConsultas.Name = "cmdConsultas";
             cmdConsultas.Size = new Size(214, 137);
@@ -126,7 +148,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.FromArgb(245, 245, 245);
             ClientSize = new Size(996, 590);
             Controls.Add(cmdConsultas);
             Controls.Add(cmdRegPedido);
@@ -137,7 +159,7 @@
             Controls.Add(label5);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = " ";
+            Text = "Sistema de Gestión";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();

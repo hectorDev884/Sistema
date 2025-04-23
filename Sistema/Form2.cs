@@ -28,6 +28,8 @@ namespace Sistema
             sqlCommand.Connection = sqlConnection;
             GetData();
             txtIdMenu.Text = GetNewId().ToString();
+
+
         }
 
         private void EnableTexts(bool status)

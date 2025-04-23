@@ -90,7 +90,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = SystemColors.ActiveCaption;
+            groupBox1.BackColor = Color.WhiteSmoke;
             groupBox1.Controls.Add(radioCliente);
             groupBox1.Controls.Add(radioRepartidor);
             groupBox1.Controls.Add(radioMenu);
@@ -161,9 +161,11 @@
             // 
             // cmdAceptar
             // 
-            cmdAceptar.BackColor = Color.LimeGreen;
+            cmdAceptar.BackColor = Color.FromArgb(67, 159, 117);
             cmdAceptar.Cursor = Cursors.Hand;
             cmdAceptar.Enabled = false;
+            cmdAceptar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            cmdAceptar.ForeColor = Color.White;
             cmdAceptar.Location = new Point(217, 246);
             cmdAceptar.Name = "cmdAceptar";
             cmdAceptar.Size = new Size(112, 54);
@@ -186,7 +188,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = SystemColors.ActiveCaption;
+            groupBox2.BackColor = Color.WhiteSmoke;
             groupBox2.Controls.Add(cboConsulta);
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(checkConIndividual);
@@ -222,10 +224,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Bookman Old Style", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Arial", 22F, FontStyle.Bold);
             label4.Location = new Point(497, 19);
             label4.Name = "label4";
-            label4.Size = new Size(192, 40);
+            label4.Size = new Size(200, 44);
             label4.TabIndex = 9;
             label4.Text = "Consultas";
             // 
@@ -244,18 +246,19 @@
             // txtConsultas
             // 
             txtConsultas.AutoSize = true;
-            txtConsultas.Font = new Font("Bookman Old Style", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtConsultas.Font = new Font("Arial", 22F, FontStyle.Bold);
             txtConsultas.Location = new Point(48, 417);
             txtConsultas.Name = "txtConsultas";
-            txtConsultas.Size = new Size(265, 32);
+            txtConsultas.Size = new Size(328, 44);
             txtConsultas.TabIndex = 12;
             txtConsultas.Text = "Consulta General";
             // 
             // cmdOk
             // 
-            cmdOk.BackColor = Color.LimeGreen;
+            cmdOk.BackColor = Color.FromArgb(67, 159, 117);
             cmdOk.Cursor = Cursors.Hand;
-            cmdOk.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmdOk.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            cmdOk.ForeColor = Color.White;
             cmdOk.Location = new Point(1037, 296);
             cmdOk.Name = "cmdOk";
             cmdOk.Size = new Size(61, 54);
@@ -268,7 +271,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1141, 692);
             Controls.Add(cmdOk);
             Controls.Add(txtConsultas);

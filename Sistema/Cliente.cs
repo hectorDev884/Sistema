@@ -59,6 +59,9 @@ namespace Sistema
 
             EnableTexts(false);
             sqlCommand.ExecuteNonQuery();
+            cmdNuevo.Enabled = true;
+            cmdGrabar.Enabled = false;
+            cmdModificar.Enabled = false;
             GetData();
         }
 
