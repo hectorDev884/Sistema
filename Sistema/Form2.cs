@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using Microsoft.IdentityModel.Tokens;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Sistema
 {
@@ -59,13 +62,41 @@ namespace Sistema
             txtIdMenu.Text = GetNewId().ToString();
             EnableTexts(true);
         }
+        private bool ValidValues(string concepto, string descripcion, string precio)
+        {
+            if (string.IsNullOrEmpty(concepto) ||
+                string.IsNullOrEmpty(descripcion) ||
+                string.IsNullOrEmpty(precio))
+            {
+                MessageBox.Show("No se permiten campos nulos");
+                return true;
+            }
 
+            if (!Regex.IsMatch(concepto.Trim(), @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"))
+            {
+                MessageBox.Show("El concepto debe contener solo letras");
+                return true;
+            }
+
+            if (!Regex.IsMatch(precio, @"^-?\d+(\.\d+)?$"))
+            {
+                MessageBox.Show("El precio debe ser un numero flotante");
+                return true;
+            }
+
+            return false;
+
+        }
         private void cmdGrabar_Click(object sender, EventArgs e)
         {
             cmdNuevo.Enabled = true;
             cmdGrabar.Enabled = false;
             cmdModificar.Enabled = false;
             cmdBuscar.Enabled = true;
+            if (ValidValues(txtConcepto.Text, txtDescripcion.Text, txtPrecio.Text))
+            {
+                return;
+            }
             sqlCommand.CommandText = "INSERT INTO MenuPlatillos VALUES(@concepto, @descripcion, @precio);";
             sqlCommand.Parameters.Clear();
             sqlCommand.Parameters.AddWithValue("@concepto", txtConcepto.Text);
@@ -100,7 +131,22 @@ namespace Sistema
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Platillo"));
+            string auxId = Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Platillo");
+
+            if (string.IsNullOrEmpty(auxId))
+            {
+                MessageBox.Show("El id no debe ser nulo");
+                return;
+            }
+
+            if (!auxId.All(char.IsDigit) || auxId.Length > 9)
+            {
+                MessageBox.Show("El id debe ser entero, positivo y no mayor a 9 digitos");
+                return;
+            }
+            int id = Convert.ToInt32(auxId);
+
+
             sqlCommand.CommandText = "SELECT * FROM MenuPlatillos WHERE IdPlatillo = @Id";
             sqlCommand.Parameters.Clear();
             sqlCommand.Parameters.AddWithValue("@Id", id);
@@ -126,10 +172,15 @@ namespace Sistema
 
         private void cmdModificar_Click(object sender, EventArgs e)
         {
+            if (ValidValues(txtConcepto.Text, txtDescripcion.Text, txtPrecio.Text))
+            {
+                return;
+            }
+
             sqlCommand.CommandText = "UPDATE MenuPlatillos SET Concepto=@Concepto, Descripcion=@Descripcion," +
                                       "Precio=@Precio WHERE IdPlatillo=@Id";
             sqlCommand.Parameters.Clear();
-            sqlCommand.Parameters.AddWithValue("@Concepto", txtConcepto.Text);
+            sqlCommand.Parameters.AddWithValue("@Concepto", txtConcepto.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@Descripcion", txtDescripcion.Text);
             sqlCommand.Parameters.AddWithValue("@Precio", Convert.ToDouble(txtPrecio.Text));
             sqlCommand.Parameters.AddWithValue("@Id", Convert.ToInt32(txtIdMenu.Text));

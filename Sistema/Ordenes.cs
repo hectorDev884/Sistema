@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -180,6 +181,16 @@ namespace Sistema
 
         private void cmdGrabar_Click(object sender, EventArgs e)
         {
+            if (dgvOrden.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe ingresar al menos un platillo");
+                return;
+            }
+            if (cbxCliente.SelectedIndex == -1 || cbxRepartidor.SelectedIndex == -1)
+            {
+                MessageBox.Show("Se deben seleccionar cliente y repartidor");
+                return;
+            }
             SetStatus(true, false, false);
             command.CommandText = "INSERT INTO Ordenes VALUES (@IdCliente, @IdRepartidor, @Fecha, 'R', @Total)";
             command.Parameters.Clear();
@@ -216,6 +227,16 @@ namespace Sistema
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
+            if (txtCantidad.Text.Length == 0 || txtCantidad.Text.Length > 5)
+            {
+                MessageBox.Show("La cantidad no debe ser nula y debe ser menor a 6 digitos");
+                return;
+            }
+            if (!Regex.IsMatch(txtCantidad.Text, @"^[1-9]\d*$"))
+            {
+                MessageBox.Show("El numero debe ser entero positivo");
+                return;
+            }
             cbxCliente.Enabled = false;
             cbxRepartidor.Enabled = false;
             cmdGrabar.Enabled = true;
@@ -231,7 +252,21 @@ namespace Sistema
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Orden"));
+            string auxId = Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Orden");
+
+            if (string.IsNullOrEmpty(auxId))
+            {
+                MessageBox.Show("El id no debe ser nulo");
+                return;
+            }
+
+            if (!auxId.All(char.IsDigit) || auxId.Length > 9)
+            {
+                MessageBox.Show("El id debe ser entero, positivo y no mayor a 9 digitos");
+                return;
+            }
+            int id = Convert.ToInt32(auxId);
+
             command.CommandText = "SELECT IdOrden FROM Ordenes WHERE IdOrden = @Id";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Id", id);
@@ -259,6 +294,11 @@ namespace Sistema
             {
                 Application.OpenForms["DetalleOrden"].Focus();
             }
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -251,6 +251,7 @@
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(236, 27);
             txtCantidad.TabIndex = 26;
+            txtCantidad.TextChanged += txtCantidad_TextChanged;
             // 
             // label19
             // 

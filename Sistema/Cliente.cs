@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
@@ -46,12 +47,41 @@ namespace Sistema
             dgvClientes.DataSource = dt;
         }
 
+        private bool ValidValues(string nombre, string direccion, string telefono)
+        {
+            if (string.IsNullOrEmpty(nombre) ||
+                string.IsNullOrEmpty(direccion) ||
+                string.IsNullOrEmpty(telefono))
+            {
+                MessageBox.Show("No se permiten campos nulos");
+                return true;
+            }
+
+            if (!Regex.IsMatch(nombre.Trim(), @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"))
+            {
+                MessageBox.Show("El nombre deben ser solo letras");
+                return true;
+            }
+
+            if (telefono.Length != 10 || !telefono.All(char.IsDigit))
+            {
+                MessageBox.Show("El numero de telefono debe ser de 10 digitos numericos");
+                return true;
+            }
+
+            return false;
+
+        }
         private void cmdGrabar_Click(object sender, EventArgs e)
         {
             sqlCommand.CommandText = "INSERT INTO Clientes VALUES(@nombreCliente, @direccionCliente, @telefonoCliente)";
             string nombreCliente = txtNombre.Text;
             string direccionCliente = txtDireccion.Text;
-            string telefonoCliente = txtTelefono.Text;
+            string telefonoCliente = txtTelefono.Text.Replace(" ", "");
+            if (ValidValues(nombreCliente, direccionCliente, telefonoCliente))
+            {
+                return;
+            }
             sqlCommand.Parameters.Clear();
             sqlCommand.Parameters.AddWithValue("@nombreCliente", nombreCliente);
             sqlCommand.Parameters.AddWithValue("@direccionCliente", direccionCliente);
@@ -98,10 +128,22 @@ namespace Sistema
             reader.Close();
             return id + 1;
         }
-
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Cliente"));
+            string auxId = Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Cliente");
+            if (string.IsNullOrEmpty(auxId))
+            {
+                MessageBox.Show("El id no debe ser nulo");
+                return;
+            }
+
+            if (!auxId.All(char.IsDigit) || auxId.Length > 9)
+            {
+                MessageBox.Show("El id debe ser entero, positivo y no mayor a 9 digitos");
+                return;
+            }
+            int id = Convert.ToInt32(auxId);
+
             sqlCommand.CommandText = "SELECT * FROM Clientes WHERE IdCliente = @Id";
             sqlCommand.Parameters.Clear();
             sqlCommand.Parameters.AddWithValue("@Id", id);
@@ -127,12 +169,16 @@ namespace Sistema
 
         private void cmdModificar_Click(object sender, EventArgs e)
         {
+            if (ValidValues(txtNombre.Text, txtDireccion.Text, txtTelefono.Text.Replace(" ", "")))
+            {
+                return;
+            }
             sqlCommand.CommandText = "UPDATE Clientes SET NombreCliente=@Nombre, DireccionCliente=@Direccion," +
                                       "TelefonoCliente=@Telefono WHERE IdCliente=@Id";
             sqlCommand.Parameters.Clear();
-            sqlCommand.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+            sqlCommand.Parameters.AddWithValue("@Nombre", txtNombre.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-            sqlCommand.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+            sqlCommand.Parameters.AddWithValue("@Telefono", txtTelefono.Text.Replace(" ", ""));
             sqlCommand.Parameters.AddWithValue("@Id", Convert.ToInt32(txtIdCliente.Text));
 
             cmdNuevo.Enabled = true;
@@ -156,6 +202,7 @@ namespace Sistema
             cmdGrabar.Enabled = false;
             cmdCancelar.Enabled = true;
             cmdModificar.Enabled = false;
+            cmdBuscar.Enabled = true;
             EnableTexts(false);
         }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -58,17 +60,49 @@ namespace Sistema
             EnableTexts(true);
         }
 
+        private bool ValidValues(string nombre, string vehiculo, string telefono)
+        {
+            if (string.IsNullOrEmpty(nombre) ||
+                string.IsNullOrEmpty(vehiculo) ||
+                string.IsNullOrEmpty(telefono))
+            {
+                MessageBox.Show("No se permiten campos nulos");
+                return true;
+            }
+
+            if (!Regex.IsMatch(nombre.Trim(), @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"))
+            {
+                MessageBox.Show("El nombre no puede contener digitos");
+                return true;
+            }
+
+            telefono = telefono.Replace(" ", "");
+            if (telefono.Length != 10 || !telefono.All(char.IsDigit))
+            {
+                MessageBox.Show("El numero de telefono debe ser de 10 digitos numericos");
+                return true;
+            }
+
+            return false;
+
+        }
+
         private void cmdGrabar_Click(object sender, EventArgs e)
         {
+
+            if (ValidValues(txtNombre.Text, txtVehiculo.Text, txtTelefono.Text))
+            {
+                return;
+            }
             string connectionString = "Data Source=.;Initial Catalog=SistemaPedidos;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand("", sqlConnection);
             sqlCommand.CommandText = "INSERT INTO Repartidores VALUES(@nombre, @telefono, @vehiculo);";
             sqlCommand.Parameters.Clear();
-            sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text);
+            sqlCommand.Parameters.AddWithValue("@nombre", txtNombre.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@vehiculo", txtVehiculo.Text);
-            sqlCommand.Parameters.AddWithValue("@telefono", txtTelefono.Text);
+            sqlCommand.Parameters.AddWithValue("@telefono", txtTelefono.Text.Replace(" ", ""));
 
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
@@ -109,7 +143,23 @@ namespace Sistema
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand("", sqlConnection);
-            int id = Convert.ToInt32(Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Repartidor"));
+
+            string auxId = Microsoft.VisualBasic.Interaction.InputBox("ID: ", "Buscar Repartidor");
+
+            if (string.IsNullOrEmpty(auxId))
+            {
+                MessageBox.Show("El id no debe ser nulo");
+                return;
+            }
+
+            if (!auxId.All(char.IsDigit) || auxId.Length > 9)
+            {
+                MessageBox.Show("El id debe ser entero, positivo y no mayor a 9 digitos");
+                return;
+            }
+            int id = Convert.ToInt32(auxId);
+
+
             sqlCommand.CommandText = "SELECT * FROM Repartidores WHERE IdRepartidor = @id";
             sqlCommand.Parameters.Clear();
             sqlCommand.Parameters.AddWithValue("@id", id);
@@ -135,6 +185,10 @@ namespace Sistema
 
         private void cmdModificar_Click(object sender, EventArgs e)
         {
+            if (ValidValues(txtNombre.Text, txtVehiculo.Text, txtTelefono.Text))
+            {
+                return;
+            }
             string connectionString = "Data Source=.;Initial Catalog=SistemaPedidos;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
@@ -142,8 +196,8 @@ namespace Sistema
             sqlCommand.CommandText = "UPDATE Repartidores SET Nombre=@Nombre, Telefono=@Telefono," +
                                       "Vehiculo=@Vehiculo WHERE IdRepartidor=@Id";
             sqlCommand.Parameters.Clear();
-            sqlCommand.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-            sqlCommand.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+            sqlCommand.Parameters.AddWithValue("@Nombre", txtNombre.Text.Trim());
+            sqlCommand.Parameters.AddWithValue("@Telefono", txtTelefono.Text.Replace(" ", ""));
             sqlCommand.Parameters.AddWithValue("@Vehiculo", txtVehiculo.Text);
             sqlCommand.Parameters.AddWithValue("@Id", Convert.ToInt32(txtIdRepartidor.Text));
 
