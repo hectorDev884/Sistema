@@ -141,6 +141,7 @@ namespace Sistema
                 checkConIndividual.Enabled = true;
                 FillComboBox("SELECT NombreCliente FROM Clientes");
                 txtConsultas.Text = "Consulta de Clientes";
+                checkConIndividual.Checked = false;
             }
             else if (radioRepartidor.Checked)
             {
@@ -149,6 +150,7 @@ namespace Sistema
                 checkConIndividual.Enabled = true;
                 FillComboBox("SELECT Nombre FROM Repartidores");
                 txtConsultas.Text = "Consulta de Repartidores";
+                checkConIndividual.Checked = false;
             }
             else
             {
@@ -157,6 +159,7 @@ namespace Sistema
                 checkConIndividual.Enabled = true;
                 FillComboBox("SELECT Concepto FROM MenuPlatillos");
                 txtConsultas.Text = "Consulta de Menú";
+                checkConIndividual.Checked = false;
             }
         }
 
